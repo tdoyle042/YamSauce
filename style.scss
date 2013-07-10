@@ -1,4 +1,10 @@
 /*
+ * GLOBALS
+ **********************************/
+
+$grid-padding: 40px;
+
+/*
  * GENERAL
  **********************************/
 
@@ -17,35 +23,57 @@ html, body{
  **********************************/
 
 .container {
-  width: 1230px;
+  // max-width: 1920px;
+  width: 1220px;
   height: 100%;
-  margin: 0 auto;
+  margin: {
+    top: 50px;
+    bottom: 20px;
+    left: auto;
+    right: auto;
+  }
 }
 
 .content-wrapper {
   position: relative;
   padding: {
-    left: 20px;
-    bottom: 20px;
+    left: $grid-padding;
+    bottom: $grid-padding;
+    top: $grid-padding/2;
   }
 }
 
 .jumpbar {
-  background: #666;
+
   height: 100%;
   text-align: right;
+  margin-top: $grid-padding;
 
+  ul {
+    list-style: none;
+    margin: 0;
+  }
 }
 
 .site-header {
+  position: fixed;
   width: 100%;
-  height: 50px;
-  border: 1px solid black;
+  height: 41px;
+  top: 0;
+  z-index: 10000;
+  background-color: #efefef;
+  border-bottom: 1px solid #dfdfdf
 }
 
-.active {
-  width: 100% !important;
-  z-index: 9999;
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  z-index: 100;
+  height: 100%;
+  background-color: #7093E8;
+  z-index: 10001;
 }
 
 /*
@@ -53,9 +81,16 @@ html, body{
  **********************************/
 
 .message-wrapper {
+  // transition: left .2s, width .2s;
   width: 50%;
-  padding-right: 20px;
-  padding-bottom: 20px;
+  padding-right: $grid-padding;
+  padding-bottom: $grid-padding;
+}
+
+.active {
+  width: 100% !important;
+  z-index: 1000;
+  left: 0 !important;
 }
 
 .message {
@@ -64,13 +99,13 @@ html, body{
 }
 
 .shadowbox {
-  position: absolute;
+  position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 /*

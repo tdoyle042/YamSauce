@@ -13,15 +13,36 @@
 
 <!-- Header -->
 <header class="site-header">
-  
+  <div class="sidebar">
+    <div class="pure-menu pure-menu-open">
+        <a class="pure-menu-heading">YAMMER, BITCH!</a>
+    </div>
+  </div>
 </header>
+
+<!-- Sidebar  -->
+<div class="sidebar">
+  <div class="pure-menu pure-menu-open">
+      <a class="pure-menu-heading">YAMMER, BITCH!</a>
+      <ul>
+          <li><a href="#">Flickr</a></li>
+          <li><a href="#">Messenger</a></li>
+          <li><a href="#">Sports</a></li>
+          <li><a href="#">Finance</a></li>
+          <li class="pure-menu-heading">More Sites!</li>
+          <li><a href="#">Games</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">OMG!</a></li>
+      </ul>
+  </div>
+</div>
+
 
 <div class="container">
   <div class="pure-g">
 
     <!-- Jumpbar -->
     <div class="pure-u-1-8 jumpbar">
-      <h3>Jumpbar</h3>
       <ul>
         <li>Group 1</li>
         <li>Group 2</li>
@@ -41,12 +62,11 @@
         <div class="test1 message-wrapper"><div class="message"><h1>5</h1></div></div>
         <div class="test2 message-wrapper"><div class="message"><h1>6</h1></div></div>
       </div>
-      <div class="shadowbox"></div>
     </div>
     <!-- Offset -->
     <div class="pure-u-1-8"></div>
   </div>
-   
+
 </div>
 
   <!-- Scripts here -->
@@ -64,8 +84,21 @@
       });
 
       $(".message").click(function() {
+        if($(this).parent().hasClass("active"))
+          return;
+
+        var shadow = $("<div />").addClass("shadowbox").click(function(){
+          msnry.unstamp($(".message-wrapper").toArray());
+          $(".message-wrapper").removeClass("active");
+          $(this).remove();
+          msnry.layout();
+        });
+
+        $("body").append(shadow);
         $(this).parent().addClass("active").siblings().removeClass("active");
-        msnry.layout();
+        msnry.stamp($(this).parent()[0]);
+        // msnry.layout();
+
       });
 
     });

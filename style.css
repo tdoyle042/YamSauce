@@ -1,4 +1,7 @@
 /*
+ * GLOBALS
+ **********************************/
+/*
  * GENERAL
  **********************************/
 * {
@@ -13,49 +16,71 @@ html, body {
  * FRAMEWORK
  **********************************/
 .container {
-  width: 1230px;
+  width: 1220px;
   height: 100%;
-  margin: 0 auto; }
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto; }
 
 .content-wrapper {
   position: relative;
-  padding-left: 20px;
-  padding-bottom: 20px; }
+  padding-left: 40px;
+  padding-bottom: 40px;
+  padding-top: 20px; }
 
 .jumpbar {
-  background: #666;
   height: 100%;
-  text-align: right; }
+  text-align: right;
+  margin-top: 40px; }
+  .jumpbar ul {
+    list-style: none;
+    margin: 0; }
 
 .site-header {
+  position: fixed;
   width: 100%;
-  height: 50px;
-  border: 1px solid black; }
+  height: 41px;
+  top: 0;
+  z-index: 10000;
+  background-color: #efefef;
+  border-bottom: 1px solid #dfdfdf; }
 
-.active {
-  width: 100% !important;
-  z-index: 9999; }
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  z-index: 100;
+  height: 100%;
+  background-color: #7093E8;
+  z-index: 10001; }
 
 /*
  * COMPONENTS
  **********************************/
 .message-wrapper {
   width: 50%;
-  padding-right: 20px;
-  padding-bottom: 20px; }
+  padding-right: 40px;
+  padding-bottom: 40px; }
+
+.active {
+  width: 100% !important;
+  z-index: 1000;
+  left: 0 !important; }
 
 .message {
   background: #999;
   height: 100%; }
 
 .shadowbox {
-  position: absolute;
+  position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1000; }
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999; }
 
 /*
  * TESTING SHIT
