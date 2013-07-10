@@ -74,14 +74,21 @@ html, body{
   height: 100%;
   background-color: #7093E8;
   z-index: 10001;
+  -webkit-box-shadow: 0 0 15px black;
+     -moz-box-shadow: 0 0 15px black;
+          box-shadow: 0 0 15px black;
 }
+
 
 /*
  * COMPONENTS
  **********************************/
 
+.logo {
+  width: 300px;
+}
+
 .message-wrapper {
-  // transition: left .2s, width .2s;
   width: 50%;
   padding-right: $grid-padding;
   padding-bottom: $grid-padding;

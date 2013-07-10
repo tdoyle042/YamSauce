@@ -13,8 +13,8 @@
 
 <!-- Header -->
 <header class="site-header">
-  <div class="sidebar">
-    <div class="pure-menu pure-menu-open">
+  <div class="logo">
+    <div class="pure-menu">
         <a class="pure-menu-heading">YAMMER, BITCH!</a>
     </div>
   </div>
@@ -44,11 +44,11 @@
     <!-- Jumpbar -->
     <div class="pure-u-1-8 jumpbar">
       <ul>
-        <li>Group 1</li>
-        <li>Group 2</li>
-        <li>Group 3</li>
-        <li>Group 4</li>
-        <li>Group 5</li>
+        <li>Inbox</li>
+        <li>Core Services</li>
+        <li>Clieñts Team</li>
+        <li>Rails Team</li>
+        <li>Off Topic but Rad</li>
       </ul>
     </div>
     
@@ -83,6 +83,7 @@
         itemSelector: '.message-wrapper'
       });
 
+      // WHEN YOU CLICK THINNGS THEY GET FOCUSED
       $(".message").click(function() {
         if($(this).parent().hasClass("active"))
           return;
@@ -97,12 +98,18 @@
         $("body").append(shadow);
         $(this).parent().addClass("active").siblings().removeClass("active");
         msnry.stamp($(this).parent()[0]);
-        // msnry.layout();
-
       });
-
     });
-  
+
+    // WHEN YOU HOVER OVER THE YAMMER THING IT BRINGS DA MENU IN.
+    $(".sidebar").css("margin-left","-350px");
+    $(".logo").hover(function() {
+      $(".sidebar").animate({marginLeft: 0}, 100);
+    });
+
+    $(".sidebar").hover(function(){}, function(){
+      $(".sidebar").animate({marginLeft: -350}, 100);
+    });
 
   </script>
 </body>
