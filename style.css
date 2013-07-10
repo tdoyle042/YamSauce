@@ -34,8 +34,15 @@ html, body {
   text-align: right;
   margin-top: 40px; }
   .jumpbar ul {
+    color: #777;
     list-style: none;
-    margin: 0; }
+    margin: 0;
+    text-transform: uppercase;
+    font-size: .8em; }
+    .jumpbar ul .active {
+      color: #333; }
+    .jumpbar ul li {
+      padding-bottom: 8px; }
 
 .site-header {
   position: fixed;
@@ -85,7 +92,7 @@ html, body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 3, 0.8);
   z-index: 999; }
 
 /*
