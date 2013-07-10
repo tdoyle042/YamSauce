@@ -1,14 +1,15 @@
-define(['js/backbone'],function (requrie) {
-	var GroupModel = Backbone.Model.extend({
-		initialize : function (id,fullname,threads) {
-			this.id = id;
-			this.fullname = fullname;
-			this.threads = threads;
+define(['js/backbone','js/groupModel'],function(require){
+	var GroupView = Backbone.View.extend({
+		tagName : "div",
+		className : "groupView",
+		initialize : function  (group) {
+			this.group = group;
 		},
-		unreadCount : function() {
-			return 0;
+		events : {
+
+		},
+		render : function() {
+
 		}
 	});
-
-	return GroupModel;
-})
+});
