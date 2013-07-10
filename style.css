@@ -1,15 +1,70 @@
+/*
+ * GENERAL
+ **********************************/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%; }
+
+/*
+ * FRAMEWORK
+ **********************************/
 .container {
   width: 1230px;
   height: 100%;
   margin: 0 auto; }
 
-.content {
-  background: #999;
-  height: 100%; }
+.content-wrapper {
+  position: relative;
+  padding-left: 20px;
+  padding-bottom: 20px; }
 
 .jumpbar {
   background: #666;
+  height: 100%;
+  text-align: right; }
+
+.site-header {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black; }
+
+.active {
+  width: 100% !important;
+  z-index: 9999; }
+
+/*
+ * COMPONENTS
+ **********************************/
+.message-wrapper {
+  width: 50%;
+  padding-right: 20px;
+  padding-bottom: 20px; }
+
+.message {
+  background: #999;
   height: 100%; }
 
-html, body {
-  height: 100%; }
+.shadowbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000; }
+
+/*
+ * TESTING SHIT
+ **********************************/
+.test1 {
+  height: 400px; }
+
+.test2 {
+  height: 350px; }
+
+.test3 {
+  height: 300px; }

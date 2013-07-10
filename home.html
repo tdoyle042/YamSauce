@@ -11,25 +11,66 @@
 </head>
 <body>
 
- <div class="container">
+<!-- Header -->
+<header class="site-header">
+  
+</header>
+
+<div class="container">
   <div class="pure-g">
 
     <!-- Jumpbar -->
     <div class="pure-u-1-8 jumpbar">
-      <h3>Jump</h3>
+      <h3>Jumpbar</h3>
+      <ul>
+        <li>Group 1</li>
+        <li>Group 2</li>
+        <li>Group 3</li>
+        <li>Group 4</li>
+        <li>Group 5</li>
+      </ul>
     </div>
     
     <!-- Main content -->
-    <div class="pure-u-3-4 content">
-      <h1>Content</h1>
+    <div class="content-wrapper pure-u-3-4">
+      <div class="content">
+        <div class="test1 message-wrapper"><div class="message"><h1>1</h1></div></div>
+        <div class="test2 message-wrapper"><div class="message"><h1>2</h1></div></div>
+        <div class="test3 message-wrapper"><div class="message"><h1>3</h1></div></div>
+        <div class="test3 message-wrapper"><div class="message"><h1>4</h1></div></div>
+        <div class="test1 message-wrapper"><div class="message"><h1>5</h1></div></div>
+        <div class="test2 message-wrapper"><div class="message"><h1>6</h1></div></div>
+      </div>
+      <div class="shadowbox"></div>
     </div>
-
     <!-- Offset -->
     <div class="pure-u-1-8"></div>
   </div>
    
- </div>
+</div>
 
   <!-- Scripts here -->
+  <script src="jquery-2.0.3.js"></script>
+  <script src="masonry.js"></script>
+  <script>
+    var msnry;
+
+    $(document).ready(function() {
+      var container = document.querySelector('.content');
+
+      msnry = new Masonry( container, {
+        columnWidth: '.message-wrapper',
+        itemSelector: '.message-wrapper'
+      });
+
+      $(".message").click(function() {
+        $(this).parent().addClass("active").siblings().removeClass("active");
+        msnry.layout();
+      });
+
+    });
+  
+
+  </script>
 </body>
 </html>
