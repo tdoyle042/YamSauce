@@ -162,6 +162,7 @@ html, body{
     img {
       @include rounded-edges(50%);
       width: 75px;
+      height: 75px;
     }
   }
 

@@ -65,105 +65,109 @@
 
 </div>
 
-  <!-- Scripts here -->
-  <script src="js/jquery-2.0.3.js"></script>
-  <script src="js/masonry.js"></script>
-  <script src="js/mustache.js"></script>
+<!-- Scripts here -->
+<script src="js/jquery-2.0.3.js"></script>
+<script src="js/masonry.js"></script>
+<script src="js/mustache.js"></script>
 
-  <script data-main="js/yamSauceApp" src="js/require.js"></script>
-  <script src="js/test.js"></script>
-  <script>
+<script data-main="js/yamSauceApp" src="js/require.js"></script>
+<script src="js/test.js"></script>
+<script>
 
-    $(document).ready(function() {
-      //
-      // TEMPLATING (should be done before any other DOM-related stuff)
-      //
+  // TODO: In prime time, put these in document.ready so they
+  // remain private / don't pollute the namespace.
+  var msnry;
 
-      // Templates and Context (Change here when not testing)
-      var message_template = $("#message-template").html();
-      var message_context = test_messages
+  // Document ready stuff
+  $(document).ready(function() {
+    //
+    // TEMPLATING (should be done before any other DOM-related stuff)
+    //
 
-      // MESSAGES
-      $(".content").html(Mustache.render(message_template, message_context));
+    // Templates and Context (Change here when not testing)
+    var message_template = $("#message-template").html();
+    var message_context = test_messages
 
-
-      //
-      // GET MASONRY GOIN'
-      //
-      var msnry;
-      var container = document.querySelector('.content');
-
-      msnry = new Masonry( container, {
-        columnWidth: '.message-wrapper',
-        itemSelector: '.message-wrapper'
-      });
+    // MESSAGES
+    $(".content").html(Mustache.render(message_template, message_context));
 
 
-      //
-      // EVENT LISTENERS
-      // 
+    //
+    // GET MASONRY GOIN'
+    //
+    var container = document.querySelector('.content');
 
-      // WHEN YOU CLICK THINNGS THEY GET FOCUSED. HOT DOG!
-      $(".message").click(function() {
-        if($(this).parent().hasClass("active"))
-          return;
-
-        var shadow = $("<div />").addClass("shadowbox").click(function(){
-          msnry.unstamp($(".message-wrapper").toArray());
-          $(".message-wrapper").removeClass("active");
-          $(this).remove();
-          msnry.layout();
-        });
-
-        $("body").append(shadow);
-        $(this).parent().addClass("active").siblings().removeClass("active");
-        msnry.stamp($(this).parent()[0]);
-      });
-
-
-      // WHEN YOU HOVER OVER THE YAMMER THING IT BRINGS DA MENU IN.
-      $(".sidebar").css("margin-left","-350px");
-      $(".logo").hover(function() {
-        $(".sidebar").animate({marginLeft: 0}, 100);
-      });
-
-      $(".sidebar").hover(function(){}, function(){
-        $(".sidebar").animate({marginLeft: -350}, 100);
-      });
-
+    msnry = new Masonry( container, {
+      columnWidth: '.message-wrapper',
+      itemSelector: '.message-wrapper'
     });
 
-  </script>
+
+    //
+    // EVENT LISTENERS
+    // 
+
+    // WHEN YOU CLICK THINNGS THEY GET FOCUSED. HOT DOG!
+    $(".message").click(function() {
+      if($(this).parent().hasClass("active"))
+        return;
+
+      var shadow = $("<div />").addClass("shadowbox").click(function(){
+        msnry.unstamp($(".message-wrapper").toArray());
+        $(".message-wrapper").removeClass("active");
+        $(this).remove();
+        msnry.layout();
+      });
+
+      $("body").append(shadow);
+      $(this).parent().addClass("active").siblings().removeClass("active");
+      msnry.stamp($(this).parent()[0]);
+    });
 
 
-  <!-- TEMPLATES FOR EVERYONE -->
+    // WHEN YOU HOVER OVER THE YAMMER THING IT BRINGS DA MENU IN.
+    $(".sidebar").css("margin-left","-350px");
+    $(".logo").hover(function() {
+      $(".sidebar").animate({marginLeft: 0}, 100);
+    });
 
-  <script id="message-template" type="text/x-mustache-template">
+    $(".sidebar").hover(function(){}, function(){
+      $(".sidebar").animate({marginLeft: -350}, 100);
+    });
 
-    {{#messages}}
-    <div class='message-wrapper'>
-      <div class='message'>
-        <header>
-          <div class='header-row'>
-            <div class='avatar'>
-              <img src='{{{avatar}}}' />
-            </div>
-            <div class='to-from'>
-              {{from}}<br><span>to {{to}}</span>
-            </div>
-          </div>  
-          <div class='timestamp'>{{timestamp}}</div>
-        </header>
-        <div class='content'>
-          {{content}} 
-        </div>
-        <footer>
-          <div class='meta'>{{likes}} Likes - 5 Comments</div>
-        </footer>
+  });
+
+</script>
+
+
+<!-- TEMPLATES FOR EVERYONE -->
+
+<script id="message-template" type="text/x-mustache-template">
+
+  {{#messages}}
+  <div class='message-wrapper'>
+    <div class='message'>
+      <header>
+        <div class='header-row'>
+          <div class='avatar'>
+            <img src='{{{avatar}}}' />
+          </div>
+          <div class='to-from'>
+            {{from}}<br><span>to {{to}}</span>
+          </div>
+        </div>  
+        <div class='timestamp'>{{timestamp}}</div>
+      </header>
+      <div class='content'>
+        {{content}} 
       </div>
+      <footer>
+        <div class='meta'>{{likes}} Likes - 5 Comments</div>
+      </footer>
     </div>
-    {{/messages}}
-  </script>
+  </div>
+  {{/messages}}
+</script>
 
 </body>
 </html>
