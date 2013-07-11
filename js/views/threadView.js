@@ -1,9 +1,9 @@
-define(['js/backbone','js/models/threadModel'],function(Backbone,Thread){
+define(['js/models/threadModel'],function(Thread){
 	
 	var ThreadView = Backbone.View.extend({
 		className : "threadView",
-		initialize : function(group) {
-			this.group = group;
+		initialize : function(thread) {
+			this.thread = thread;
 		},
 		render : function() {
 			
