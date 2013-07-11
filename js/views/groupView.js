@@ -1,12 +1,18 @@
-define(['js/models/groupModel'],function(Group){
+define(['models/groupModel'],function(Group){
 	
 	var GroupView = Backbone.View.extend({
 		className : "groupView",
-		initialize : function(group) {
-			this.group = group;
+		initialize : function() {
+			// this.group = group;
+			this.template = $("#group-template").html();
+			this.data = {
+				"group-name" : "Rainbows and Sunshine",
+				"group-unread-count" : 15
+			}
 		},
 		render : function() {
-			
+			this.el = Mustache.render(this.template,this.data);
+			$("#content").append(this.el);
 		}
 	});
 
