@@ -1,4 +1,4 @@
-define(['backbone'],function (requrie) {
+define(function () {
 	var UserModel = Backbone.Model.extend({
 		initialize : function (id,network_id,fullname,mugshot_url) {
 			this.id = id;

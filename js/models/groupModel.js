@@ -1,4 +1,4 @@
-define(['backbone'],function(require){
+define(function(){
 	var GroupModel= Backbone.Model.extend({
 		initialize : function  (id,threads) {
 			this.id = id;

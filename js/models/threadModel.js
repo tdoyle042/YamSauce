@@ -1,6 +1,7 @@
-define(['backbone'],function (require) {
+define(function () {
 	var ThreadModel = Backbone.Model.extend({
-		initialize : function (threadStarter,messages) {
+		initialize : function (id,threadStarter,messages) {
+			this.id = id;
 			this.threadStarter = threadStarter;
 			this.replies = replies;
 		}

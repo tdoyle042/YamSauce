@@ -1,6 +1,7 @@
-define(['backbone'],function (require) {
+define(function () {
 	var MessageModel = Backbone.Model.extend({
-		initialize : function (text,poster_id,timestamp,inReplyTo) {
+		initialize : function (id,text,poster_id,timestamp,inReplyTo) {
+			this.id = id;
 			this.poster_id = poster_id;
 			this.text = text;
 			this.timestamp = timestamp;

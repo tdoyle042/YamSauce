@@ -1,4 +1,4 @@
-define(['js/backbone','js/models/threadModel'],function(require,Thread){
+define(['js/backbone','js/models/threadModel'],function(Backbone,Thread){
 	
 	var ThreadView = Backbone.View.extend({
 		className : "threadView",

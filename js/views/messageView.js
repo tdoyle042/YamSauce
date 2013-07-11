@@ -1,4 +1,4 @@
-define(['js/backbone','js/models/messageModel'],function(require,Message){
+define(['js/backbone','js/models/messageModel'],function(Backbone,Message){
 	
 	var MessageView = Backbone.View.extend({
 		className : "messageView",

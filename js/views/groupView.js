@@ -1,4 +1,4 @@
-define(['js/backbone','js/models/groupModel'],function(require,Group){
+define(['js/backbone','js/models/groupModel'],function(Backbone,Group){
 	
 	var GroupView = Backbone.View.extend({
 		className : "groupView",
