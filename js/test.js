@@ -1,4 +1,6 @@
- var test_data = 
+ // Contains test data
+
+ var test_messages = 
  {messages: [
   {
     from: "Salem Hilal",
@@ -128,34 +130,3 @@
     ]
   }
 ]}
-
-var message_template = 
-"{{#messages}}" +
-"<div class='message-wrapper'>" +
-  "<div class='message'>" +
-
-    // Header
-    "<header>" +
-      "<div class='header-row'>" +
-        "<div class='avatar'>" +
-          "<img src='{{{avatar}}}' />" +
-        "</div>" +
-        "<div class='to-from'>" +
-          "{{from}}<br><span>to {{to}}</span>" +
-        "</div>" +
-      "</div>  " +
-      "<div class='timestamp'>{{timestamp}}</div>" +
-    "</header>" +
-
-    // Body
-    "<div class='content'>" +
-      "{{content}} " +
-    "</div>" +
-
-    // Footer
-    "<footer>" +
-      "<div class='meta'>{{likes}} Likes - 5 Comments</div>" +
-    "</footer>" +
-  "</div>" +
-"</div>" +
-"{{/messages}}";

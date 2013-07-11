@@ -79,8 +79,12 @@
       // TEMPLATING (should be done before any other DOM-related stuff)
       //
 
+      // Templates and Context (Change here when not testing)
+      var message_template = $("#message-template").html();
+      var message_context = test_messages
+
       // MESSAGES
-      $(".content").html(Mustache.render(message_template, test_data))
+      $(".content").html(Mustache.render(message_template, message_context));
 
 
       //
@@ -129,7 +133,36 @@
 
     });
 
+  </script>
 
+
+  <!-- TEMPLATES FOR EVERYONE -->
+
+  <script id="message-template" type="text/x-mustache-template">
+
+    {{#messages}}
+    <div class='message-wrapper'>
+      <div class='message'>
+        <header>
+          <div class='header-row'>
+            <div class='avatar'>
+              <img src='{{{avatar}}}' />
+            </div>
+            <div class='to-from'>
+              {{from}}<br><span>to {{to}}</span>
+            </div>
+          </div>  
+          <div class='timestamp'>{{timestamp}}</div>
+        </header>
+        <div class='content'>
+          {{content}} 
+        </div>
+        <footer>
+          <div class='meta'>{{likes}} Likes - 5 Comments</div>
+        </footer>
+      </div>
+    </div>
+    {{/messages}}
   </script>
 
 </body>
