@@ -22,6 +22,10 @@ require(['underscore','backbone','views/groupView','jquery-2.0.3','masonry','mus
     $(".content").html(Mustache.render(message_template, message_context));
 
 
+    var testGroupView = new GroupView();
+    testGroupView.render();
+
+
     //
     // GET MASONRY GOIN'
     //

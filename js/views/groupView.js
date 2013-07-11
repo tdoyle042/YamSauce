@@ -11,8 +11,8 @@ define(['models/groupModel'],function(Group){
 			}
 		},
 		render : function() {
-			this.el = Mustache.render(this.template,this.data);
-			$("#content").append(this.el);
+			this.$el.html(Mustache.render(this.template,this.data));
+			$(".content").append(this.el);
 		}
 	});
 
