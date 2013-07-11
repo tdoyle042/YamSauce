@@ -84,7 +84,7 @@
 <script id="message-template" type="text/x-mustache-template">
 
   {{#messages}}
-  <div class='message-wrapper'>
+  <div class='message-wrapper pure-u-1-2'>
     <div class='message'>
       <header>
         <div class='header-row'>
@@ -97,12 +97,15 @@
         </div>  
         <div class='timestamp'>{{timestamp}}</div>
       </header>
-      <div class='content'>
+      <div class='message-body'>
         {{content}} 
       </div>
       <footer>
         <div class='meta'>{{likes}} Likes - 5 Comments</div>
       </footer>
+    </div>
+    <div class='comments pure-u-1-2'>
+
     </div>
   </div>
   {{/messages}}

@@ -116,7 +116,6 @@ html, body{
 }
 
 .message-wrapper {
-  width: 50%;
   padding-right: $grid-padding;
   padding-bottom: $grid-padding;
 }
@@ -184,11 +183,15 @@ html, body{
     color: #777;
   }
 
-  .content{ 
+  .message-body{ 
     padding: 25px;
     border-bottom: 1px solid #dfdfdf;
     font-size: .95em;
     line-height: 1.35em;
+  }
+
+  .content {
+    display: none;
   }
 
 }
