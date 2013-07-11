@@ -1,5 +1,5 @@
 /*
- * GLOBALS
+ * GLOBALS AND MIXINS
  **********************************/
 /*
  * GENERAL
@@ -40,7 +40,7 @@ html, body {
     text-transform: uppercase;
     font-size: .8em; }
     .jumpbar ul .active {
-      color: #333; }
+      color: #0088cc; }
     .jumpbar ul li {
       padding-bottom: 8px; }
 
@@ -83,8 +83,32 @@ html, body {
   left: 0 !important; }
 
 .message {
-  background: #999;
-  height: 100%; }
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  border: 1px solid #dfdfdf;
+  background-color: #efefef;
+  height: 100%;
+  padding: 20px; }
+  .message header {
+    height: 75px;
+    position: relative;
+    display: block;
+    margin-bottom: 10px; }
+  .message .avatar {
+    display: inline-block; }
+    .message .avatar img {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      width: 75px; }
+  .message .to-from {
+    display: inline-block;
+    font-size: 1.5em; }
+  .message .timestamp {
+    font-size: .8em;
+    color: #777;
+    margin-bottom: 20px; }
 
 .shadowbox {
   position: fixed;

@@ -1,8 +1,15 @@
 /*
- * GLOBALS
+ * GLOBALS AND MIXINS
  **********************************/
 
 $grid-padding: 40px;
+
+@mixin rounded-edges($size) {
+  -webkit-border-radius: $size; 
+     -moz-border-radius: $size; 
+          border-radius: $size;
+}
+ 
 
 /*
  * GENERAL
@@ -57,7 +64,7 @@ html, body{
     font-size: .8em;
 
     .active {
-      color: #333;
+      color: #0088cc;
     }
 
     li {
@@ -112,8 +119,39 @@ html, body{
 }
 
 .message {
-  background: #999;
+  @include rounded-edges(1px);
+  border: 1px solid #dfdfdf;
+  background-color: #efefef;
   height: 100%;
+  padding: 20px;
+
+  header {
+    height: 75px;
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .avatar {
+    display: inline-block;
+
+    img {
+      @include rounded-edges(50%);
+      width: 75px;
+    }
+  }
+
+  .to-from {
+    display: inline-block;
+    font-size: 1.5em;
+  }
+
+  .timestamp {
+    font-size: .8em;
+    color: #777;
+    margin-bottom: 20px
+  }
+
 }
 
 .shadowbox {
