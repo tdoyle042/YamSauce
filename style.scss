@@ -39,6 +39,7 @@ html, body{
     left: auto;
     right: auto;
   }
+  text-align: center;
 }
 
 .content-wrapper {
@@ -204,6 +205,37 @@ html, body{
   width: 100%;
   background-color: rgba(0, 0, 3, 0.8);
   z-index: 999;
+}
+
+/*
+  Group View
+*/
+.group-view {
+  width:400px;
+  margin:10px auto;
+}
+
+.group-header {
+  font-weight:300;
+  background-color:#3b53ff;
+  color:white;
+  padding:10px 15px;
+  border-radius:3px;
+  text-align: left;
+}
+
+.group-name {
+  display:inline-block;
+  font-size:20px;
+}
+.group-unread-count {
+   display:inline-block;
+   padding-left:20px;
+   float:right;
+}
+
+.expanded-group {
+  width: 650px;
 }
 
 /*

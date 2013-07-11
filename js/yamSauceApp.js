@@ -15,15 +15,17 @@ require(['underscore','backbone','views/groupView','jquery-2.0.3','masonry','mus
     //
 
     // Templates and Context (Change here when not testing)
-    var message_template = $("#message-template").html();
-    var message_context = test_messages
+    // var message_template = $("#message-template").html();
+    // var message_context = test_messages
 
     // MESSAGES
-    $(".content").html(Mustache.render(message_template, message_context));
+    // $(".content").html(Mustache.render(message_template, message_context));
 
 
     var testGroupView = new GroupView();
+    var testGroupView2 = new GroupView();
     testGroupView.render();
+    testGroupView2.render();
 
 
     //
