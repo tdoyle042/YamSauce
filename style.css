@@ -115,7 +115,8 @@ html, body {
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%;
-      width: 75px; }
+      width: 75px;
+      height: 75px; }
   .message .to-from {
     display: inline-block;
     font-size: 1.5em;
