@@ -44,13 +44,16 @@ require(['underscore','backbone','views/groupView','jquery-2.0.3','masonry','mus
 
       var shadow = $("<div />").addClass("shadowbox").click(function(){
         msnry.unstamp($(".message-wrapper").toArray());
-        $(".message-wrapper").removeClass("active");
+        $(".active").removeClass("active pure-u-1").addClass("pure-u-1-2")
+            .children(".message").removeClass("pure-u-1-2");
+
         $(this).remove();
         msnry.layout();
       });
 
       $("body").append(shadow);
-      $(this).parent().addClass("active").siblings().removeClass("active");
+      $(this).parent().addClass("active pure-u-1").removeClass("pure-u-1-2").siblings().removeClass("active");
+      $(this).addClass("pure-u-1-2");
       msnry.stamp($(this).parent()[0]);
     });
 

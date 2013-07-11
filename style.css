@@ -78,7 +78,6 @@ html, body {
     border-bottom: none !important; }
 
 .message-wrapper {
-  width: 50%;
   padding-right: 40px;
   padding-bottom: 40px; }
 
@@ -127,11 +126,13 @@ html, body {
   .message .timestamp {
     font-size: .8em;
     color: #777; }
-  .message .content {
+  .message .message-body {
     padding: 25px;
     border-bottom: 1px solid #dfdfdf;
     font-size: .95em;
     line-height: 1.35em; }
+  .message .content {
+    display: none; }
 
 .shadowbox {
   position: fixed;
