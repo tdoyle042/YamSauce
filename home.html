@@ -235,10 +235,15 @@
   <!-- Scripts here -->
   <script src="js/jquery-2.0.3.js"></script>
   <script src="js/masonry.js"></script>
+  <script src="js/mustache.js"></script>
+
+  <script data-main="js/yamSauceApp" src="js/require.js"></script>
   <script>
-    var msnry;
 
     $(document).ready(function() {
+
+      // GET MASONRY GOIN'      
+      var msnry;
       var container = document.querySelector('.content');
 
       msnry = new Masonry( container, {
@@ -262,21 +267,21 @@
         $(this).parent().addClass("active").siblings().removeClass("active");
         msnry.stamp($(this).parent()[0]);
       });
+
+
+      // WHEN YOU HOVER OVER THE YAMMER THING IT BRINGS DA MENU IN.
+      $(".sidebar").css("margin-left","-350px");
+      $(".logo").hover(function() {
+        $(".sidebar").animate({marginLeft: 0}, 100);
+      });
+
+      $(".sidebar").hover(function(){}, function(){
+        $(".sidebar").animate({marginLeft: -350}, 100);
+      });
     });
 
-    // WHEN YOU HOVER OVER THE YAMMER THING IT BRINGS DA MENU IN.
-    $(".sidebar").css("margin-left","-350px");
-    $(".logo").hover(function() {
-      $(".sidebar").animate({marginLeft: 0}, 100);
-    });
-
-    $(".sidebar").hover(function(){}, function(){
-      $(".sidebar").animate({marginLeft: -350}, 100);
-    });
 
   </script>
-
-  <script data-main="js/yamSauceApp" src="js/require.js"></script>
 
 </body>
 </html>
