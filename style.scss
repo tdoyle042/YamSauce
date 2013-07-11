@@ -80,21 +80,25 @@ html, body{
   top: 0;
   z-index: 10000;
   background-color: #efefef;
-  border-bottom: 1px solid #dfdfdf
+  border-bottom: 1px solid #dfdfdf;
+  -webkit-box-shadow: 0 -10px 25px black;
+     -moz-box-shadow: 0 -10px 25px black;
+          box-shadow: 0 -10px 25px black;
+
 }
 
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
-  width: 300px;
+  width: 200px;
   z-index: 100;
   height: 100%;
   background-color: #7093E8;
   z-index: 10001;
-  -webkit-box-shadow: 0 0 15px black;
-     -moz-box-shadow: 0 0 15px black;
-          box-shadow: 0 0 15px black;
+  -webkit-box-shadow: -5px 0 25px black;
+     -moz-box-shadow: -5px 0 25px black;
+          box-shadow: -5px 0 25px black;
 }
 
 
@@ -103,7 +107,12 @@ html, body{
  **********************************/
 
 .logo {
-  width: 300px;
+  width: 200px;
+
+  //TODO: NOT THIS!!!!!
+  div a{
+    border-bottom: none !important;
+  }
 }
 
 .message-wrapper {
@@ -123,13 +132,28 @@ html, body{
   border: 1px solid #dfdfdf;
   background-color: #efefef;
   height: 100%;
-  padding: 20px;
 
   header {
-    height: 75px;
     position: relative;
     display: block;
-    margin-bottom: 10px;
+    border-bottom: 1px solid #dfdfdf;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 15px;
+
+    .header-row {
+      overflow: auto;
+    }
+  }
+
+  footer {
+    padding: {
+      left: 25px;
+      right: 25px;
+      bottom: 15px;
+      top: 15px
+    }
   }
   
   .avatar {
@@ -144,12 +168,26 @@ html, body{
   .to-from {
     display: inline-block;
     font-size: 1.5em;
+    margin: {
+      left: 15px;
+      bottom: 15px;
+    }
+
+    span {
+      font-size: .75em;
+    }
   }
 
   .timestamp {
     font-size: .8em;
     color: #777;
-    margin-bottom: 20px
+  }
+
+  .content{ 
+    padding: 25px;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: .95em;
+    line-height: 1.35em;
   }
 
 }
