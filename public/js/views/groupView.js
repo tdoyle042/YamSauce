@@ -20,9 +20,11 @@ var GroupView = Backbone.View.extend({
 		$(".content").append(this.el);
 
 		var self = this;
+		var des = self.$(".group-threads");
+		console.log(des);
 		_.map(this.group.threads.models,function(thread){
 			var tv = new ThreadView({thread: thread});
-			tv.render(this.$(".group-threads"));
+			tv.render(des);
 			self.threadViews.push(tv);
 		});
 
