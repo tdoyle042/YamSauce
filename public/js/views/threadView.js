@@ -7,28 +7,31 @@ var ThreadView = Backbone.View.extend({
         this.group = params.group;
     },
     render : function(elem) {
-        console.log("JAD",this.thread);
-
         var threadStarter = this.thread.threadStarter;
         this.data = {
             avatar: threadStarter.user.mugshot_url
             , from: threadStarter.user.full_name
-            , to: "Bob"
             , "time-stamp": threadStarter.timestamp
             , content: threadStarter.text.rich
             , comments: this.thread.replies.models
             , likes: threadStarter.likes
         };
         
-        var el = Mustache.render(this.template.html(),this.data);
-        elem.append(el);
-
+        this.el = Mustache.render(this.template.html(),this.data);
+        elem.append(this.el);
+        var self = this;
         // WHEN YOU CLOSE THINGS THEY CLOSE!
         $(".close").unbind("click");
         $(".close").click(function(){
           // Super lame, I know, but hackathon so whatever
           // console.log("Closing");
           var that = $(".active")
+          // that.addClass(".read-message");
+
+          //So Ghetto it makes me cry :'(
+          that.find(".message").css("background-color","#aaa");
+          that.find(".message-body").css("border-bottom","1px solid #777");
+          that.find("header").css("border-bottom","1px solid #777");
 
           that
                 .find(".close").hide().end()
@@ -53,7 +56,7 @@ var ThreadView = Backbone.View.extend({
                     });
         });
 
-        var self = this;
+        
         // WHEN YOU CLICK MESSAGES THEY COME INTO FOCUS HELL YEAH.
         $(".message").click(function() {
 
@@ -64,6 +67,7 @@ var ThreadView = Backbone.View.extend({
             return;
 
         self.thread.set("read",true);
+        
 
           var shadow = $("<div />").addClass("shadowbox").hide();
 

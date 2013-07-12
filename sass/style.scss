@@ -247,7 +247,6 @@ html, body{
         display: inline-block;
         float: left;
       }
-
       textarea {
         font-family: "segoeuil";
         width: 80%;
@@ -295,9 +294,9 @@ html, body{
       position: absolute;
 
       margin: {
-        top: 4px;
+        top: 15px;
         left: 20px;
-        bottom: 15px;
+        bottom: 0px;
       }
 
       span {
@@ -375,6 +374,8 @@ html, body{
   background-color: rgba(0, 0, 3, 0.8);
   z-index: 999;
 }
+
+
 
 /*
   Group View
