@@ -27,13 +27,27 @@ var GroupView = Backbone.View.extend({
 			tv.render(des);
 			self.threadViews.push(tv);
 		});
-
+		$(".group-threads").masonry({
+			columnWidth : '.message-wrapper',
+			itemSelector : '.message-wrapper'
+		});
 	},
 	toggleGroupState : function() {
-
 		if(!this.expanded) {
 			this.$el.addClass("expanded-group");
-			this.$(".group-threads").show();
+			var self = this;
+			this.$el.on("transitionend",function(event) {
+				console.log(event);
+				console.log(self.$(".group-threads").attr("class"));
+				if(self.$el.attr("class").indexOf("expanded-group") !== -1){
+					console.log("Transition ended");
+					self.$(".group-threads").masonry({
+						columnWidth : '.message-wrapper',
+						itemSelector : '.message-wrapper'
+					});
+					self.$(".group-threads").show();
+				}
+			});
 		}
 		else {
 			this.$el.removeClass("expanded-group");
