@@ -11,11 +11,11 @@ $(document).ready(function() {
   //
 
   // Templates and Context (Change here when not testing)
-  var message_template = $("#message-template").html();
-  var message_context = test_messages
+  // var message_template = $("#message-template").html();
+  // var message_context = test_messages
 
   // MESSAGES
-  $(".content").html(Mustache.render(message_template, message_context));
+  // $(".content").html(Mustache.render(message_template, message_context));
 
 
   //

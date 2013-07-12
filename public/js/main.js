@@ -1,5 +1,5 @@
 var SauceApp = function (currentUser) {
-  var log = function (d) { console.log(d); }
+  var log = function (d) { }
   SauceUtil.init(currentUser);
 
   SauceUtil.getInboxMessages(function (msgData) {

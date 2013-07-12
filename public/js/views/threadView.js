@@ -5,14 +5,14 @@ var ThreadView = Backbone.View.extend({
 		this.template = $("#thread-template");
 	},
 	render : function(elem) {
-		console.log(elem);
 		var threadStarter = this.thread.threadStarter;
+		console.log(threadStarter);
 		this.data = {
 			avatar : "",
 			from : threadStarter.poster_id,
 			to : "Bob",
 			"time-stamp" : threadStarter.timestamp,
-			content : threadStarter.text,
+			content : threadStarter.text.plain,
 		};
 		var el = Mustache.render(this.template.html(),this.data);
 		elem.append(el);

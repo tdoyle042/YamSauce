@@ -14,6 +14,7 @@ var GroupView = Backbone.View.extend({
 			"group-name" : this.group.name,
 			"group-unread-count" : 15
 		};
+		this.$(".group-threads").hide();
 	},
 	render : function() {
 		this.$el.html(Mustache.render(this.template,this.data));
@@ -21,7 +22,6 @@ var GroupView = Backbone.View.extend({
 
 		var self = this;
 		var des = self.$(".group-threads");
-		console.log(des);
 		_.map(this.group.threads.models,function(thread){
 			var tv = new ThreadView({thread: thread});
 			tv.render(des);
@@ -33,10 +33,11 @@ var GroupView = Backbone.View.extend({
 
 		if(!this.expanded) {
 			this.$el.addClass("expanded-group");
-			this.expandGroup();
+			this.$(".group-threads").show();
 		}
 		else {
 			this.$el.removeClass("expanded-group");
+			this.$(".group-threads").hide();
 		}
 
 		this.expanded = !this.expanded;
