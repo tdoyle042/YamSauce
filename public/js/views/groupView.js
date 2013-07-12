@@ -4,7 +4,9 @@ var GroupView = Backbone.View.extend({
 	},
 	className : "group-view",
 	events : {
-		"click .group-header" : "toggleGroupState" 
+		"click .group-markasread" : "markAsRead" ,
+		"click .group-header" : "toggleGroupState"
+		
 	},
 	initialize : function(params) {
 		this.template = $("#group-template").html();
@@ -15,6 +17,7 @@ var GroupView = Backbone.View.extend({
 			"group-unread-count" : 15
 		};
 		this.$(".group-threads").hide();
+		this.$(".group-markasread").hide();
 	},
 	render : function() {
 		this.$el.html(Mustache.render(this.template,this.data));
@@ -32,7 +35,12 @@ var GroupView = Backbone.View.extend({
 			itemSelector : '.message-wrapper'
 		});
 	},
-	toggleGroupState : function() {
+	toggleGroupState : function(event) {
+		//If the click event isn't aimed at the header
+		//button then ignore it
+		if(event.target != this.$('.group-header')[0])
+			return false;
+
 		if(!this.expanded) {
 			this.$el.addClass("expanded-group");
 			var self = this;
@@ -43,17 +51,22 @@ var GroupView = Backbone.View.extend({
 						itemSelector : '.message-wrapper'
 					});
 					self.$(".group-threads").show();
+					self.$(".group-unread-count").hide();
+					self.$(".group-markasread").show();
 				}
 			});
 		}
 		else {
 			this.$el.removeClass("expanded-group");
 			this.$(".group-threads").hide();
+			this.$(".group-markasread").hide();
+			this.$(".group-unread-count").show();
 		}
 
 		this.expanded = !this.expanded;
+		return true;
 	},
-	expandGroup : function() {
-
+	markAsRead : function() {
+		return true;
 	}
 });
