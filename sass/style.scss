@@ -240,19 +240,21 @@ html, body{
         right: 25px;
       }
 
-      input, button {
-        height: 100px;
+      textarea, button {
+        height: 70px;
         margin: 0;
         padding: 0;
         display: inline-block;
         float: left;
       }
 
-      input {
+      textarea {
         font-family: "segoeuil";
         width: 80%;
         background: white;
         border: 1px solid #dfdfdf;
+        resize: none;
+        overflow: scroll;
       }
       button {
         font-family: "segoeui";
@@ -349,7 +351,8 @@ html, body{
   }
 
   .message-body {
-    padding-right: 40px;
+    overflow: scroll;
+    height: 320px;
   }
 }
 
