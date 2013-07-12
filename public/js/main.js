@@ -72,6 +72,34 @@ var SauceApp = function (currentUser) {
     });
   });
 
+  $(document).keydown(function (e) {
+    if (e.keyCode == 80 || e.keyCode == 79) {
+      var user = globalUsers.models[_.random(0, globalUsers.length)];
+
+      var faceBox = $('<div/>', {
+        class: 'faceBox'
+      }).css("left", _.random(100, $('body').width() - 100));
+
+      var hat = $('<img/>', {
+        class: 'hat'
+        , src: 'http://1.bp.blogspot.com/-5QhgdSm4VrU/Tu1_FdGUbbI/AAAAAAAAAZg/hiq91OLnFL0/s320/santa-hat.png'
+      });
+
+      var faceImage = $('<img/>', {
+        class: 'faceImage'
+        // , src: e.keyCode == 80 ? user.mugshot_url : 'https://mug0.assets-yammer.com/mugshot/images/150x150/QhmmjfSfRQFQxfr9sPx2MG6c0301HHmn'
+        , src: e.keyCode == 80 ? user.mugshot_url : '/img/pisoni.jpg'
+      });
+      hat.appendTo(faceBox);
+      faceImage.appendTo(faceBox);
+
+      $('body').prepend(faceBox);
+      faceBox.animate({ top: "1000px" }, 5000, function () {
+        faceBox.remove();
+      });
+    }
+  });
+
   // SauceUtil.getCurrentUser(log);
   // SauceUtil.getTopGroups(log);
   // SauceUtil.getInboxMessages(log);
