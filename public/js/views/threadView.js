@@ -6,10 +6,9 @@ var ThreadView = Backbone.View.extend({
 	},
 	render : function(elem) {
 		var threadStarter = this.thread.threadStarter;
-		console.log(threadStarter);
 		this.data = {
-			avatar : "",
-			from : threadStarter.poster_id,
+			avatar : threadStarter.user.mugshot_url,
+			from : threadStarter.user.full_name,
 			to : "Bob",
 			"time-stamp" : threadStarter.timestamp,
 			content : threadStarter.text.plain,
@@ -18,46 +17,44 @@ var ThreadView = Backbone.View.extend({
 		elem.append(el);
 
 		// WHEN YOU CLOSE THINGS THEY CLOSE!
+		$(".close").unbind("click");
 		$(".close").click(function(){
 		  // Super lame, I know, but hackathon so whatever
-		  console.log("shadowbox click!");
-		  $(".shadowbox").click();
+		  console.log("Closing");
+		  var that = $(".active")
+
+		  that
+		  		.find(".close").hide().end()
+		  		.find(".comments")
+		  			.animate({marginLeft: "-50%"}, 300, function(){
+		  				that
+		  						.removeClass("active pure-u-1").addClass("pure-u-1-2")
+		  				    .find(".message")
+		  				      .removeClass("pure-u-1-2")
+		  				    .end().find(".meta-comments")
+		  				      .show()
+		  				    .end()
+		  				    .find(".close")
+		  				      .hide()
+		  				    .end()
+		  				    .height("auto");
+
+		  				    $(".shadowbox").fadeOut(300, function(){
+		  				      $(".shadowbox").remove();
+		  				    });
+		  				    $(".group-threads").masonry();
+		  			});
 		});
 
 		// WHEN YOU CLICK MESSAGES THEY COME INTO FOCUS HELL YEAH.
 		$(".message").click(function() {
+
+
+			//TODO: ok this is really, really gross and hackey and I'm sorry
 		  if($(this).parent().hasClass("active"))
 		    return;
 
-		  var shadow = $("<div />").addClass("shadowbox").hide().click(function(){
-		    var that = $(".active")
-
-		    that
-		    		.find(".close").hide().end()
-		    		.find(".comments")
-		    			.animate({marginLeft: "-50%"}, 300, function(){
-		    				that
-		    						.removeClass("active pure-u-1").addClass("pure-u-1-2")
-		    				    .find(".message")
-		    				      .removeClass("pure-u-1-2")
-		    				    .end().find(".meta-comments")
-		    				      .show()
-		    				    .end()
-		    				    .find(".close")
-		    				      .hide()
-		    				    .end()
-		    				    .height("auto");
-		    				    // .animate({width: "50%"});
-
-		    				    $(this).fadeOut(function(){
-		    				      $(".shadowbox").remove();
-		    				    });
-		    				    $("content").masonry();
-		    			});
-		    		
-
-		    
-		  });
+		  var shadow = $("<div />").addClass("shadowbox").hide();
 
 		  $("body").append(shadow);
 		  $(".shadowbox").fadeIn();
@@ -69,15 +66,20 @@ var ThreadView = Backbone.View.extend({
 		  that.find(".meta-comments").hide();
 
 		  that
-		    .addClass("active")
-		    .removeClass("pure-u-1-2")
-		    .find(".comments").show()
-		    .animate({marginLeft: "0%"}, 400, function(){
-			    that
-			      .find(".close").show().end()
-			      .siblings().removeClass("active");
-			    $(this).addClass("pure-u-1-2");
-		    });
+		    .addClass("active");
+		  $(".active").animate({left: "0"}, function(){
+		  	  that
+		  	    .removeClass("pure-u-1-2")
+		  	    .find(".comments").show()
+		  	    .animate({marginLeft: "0%", left: "0px"}, 400, function(){
+		  		    that
+		  		      .find(".close").show().end()
+		  		      .siblings().removeClass("active");
+		  		    $(this).addClass("pure-u-1-2");
+		  	    });
+		  });
+
+		  
 		  
 		});
 

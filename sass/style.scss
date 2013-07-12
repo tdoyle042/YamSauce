@@ -3,6 +3,9 @@
  **********************************/
 
 $grid-padding: 40px;
+$group-collapsed-width:400px;
+$group-expanded-width:700px;
+$group-expansion-function : cubic-bezier(.10, .10, 0, 1);
 
 @mixin rounded-edges($size) {
   -webkit-border-radius: $size; 
@@ -312,7 +315,7 @@ html, body{
 }
 
 .active {
-  width: 100% !important;
+  width:$group-expanded-width;
   // position: absolute !important;
   // left: 0 !important;
 
@@ -363,9 +366,7 @@ html, body{
   Group View
 */
 
-$group-collapsed-width:400px;
-$group-expanded-width:700px;
-$group-expansion-function : cubic-bezier(.10, .10, 0, 1);
+
 
 .group-view {
   width:$group-collapsed-width;
