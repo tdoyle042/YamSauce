@@ -26,6 +26,9 @@ var ThreadView = Backbone.View.extend({
 
 		// WHEN YOU CLICK MESSAGES THEY COME INTO FOCUS HELL YEAH.
 		$(".message").click(function() {
+
+
+			//TODO: ok this is really, really gross and hackey and I'm sorry
 		  if($(this).parent().hasClass("active"))
 		    return;
 
@@ -49,10 +52,10 @@ var ThreadView = Backbone.View.extend({
 		    				    .height("auto");
 		    				    // .animate({width: "50%"});
 
-		    				    $(this).fadeOut(function(){
+		    				    $(".shadowbox").fadeOut(300, function(){
 		    				      $(".shadowbox").remove();
 		    				    });
-		    				    $("content").masonry();
+		    				    $(".group-threads").masonry();
 		    			});
 		    		
 
@@ -69,15 +72,20 @@ var ThreadView = Backbone.View.extend({
 		  that.find(".meta-comments").hide();
 
 		  that
-		    .addClass("active")
-		    .removeClass("pure-u-1-2")
-		    .find(".comments").show()
-		    .animate({marginLeft: "0%"}, 400, function(){
-			    that
-			      .find(".close").show().end()
-			      .siblings().removeClass("active");
-			    $(this).addClass("pure-u-1-2");
-		    });
+		    .addClass("active");
+		  $(".active").animate({left: "0"}, function(){
+		  	  that
+		  	    .removeClass("pure-u-1-2")
+		  	    .find(".comments").show()
+		  	    .animate({marginLeft: "0%", left: "0px"}, 400, function(){
+		  		    that
+		  		      .find(".close").show().end()
+		  		      .siblings().removeClass("active");
+		  		    $(this).addClass("pure-u-1-2");
+		  	    });
+		  });
+
+		  
 		  
 		});
 
