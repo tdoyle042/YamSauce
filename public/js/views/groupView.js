@@ -66,7 +66,8 @@ var GroupView = Backbone.View.extend({
 			// console.log(this.unreadCount());
 			var self = this;
 			_.each(this.threadViews,function(tv){
-				tv.$el.remove();
+				tv.removeSelf();
+				tv.remove();
 			});
 		}
 

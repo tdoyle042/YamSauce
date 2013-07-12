@@ -97,5 +97,9 @@ var ThreadView = Backbone.View.extend({
           
         });
 
+    },
+    removeSelf : function() {
+        console.log("removing myself!",this.$el);
+        this.remove();
     }
 });
