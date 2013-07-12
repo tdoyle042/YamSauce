@@ -21,6 +21,10 @@ var SauceUtil = {
     yam.request({
       url: "https://www.yammer.com/api/v1/messages/private.json"
       , method: "GET"
+      , data: {
+        threaded: "extended"
+        , limit: 10
+      }
       , success: function (data) { cb(data); }
       , error: function (err) { console.error(err); }
     });
@@ -29,6 +33,10 @@ var SauceUtil = {
     yam.request({
       url: "https://www.yammer.com/api/v1/messages/in_group/" + groupId + ".json"
       , method: "GET"
+      , data: {
+        threaded: "extended"
+        , limit: 10
+      }
       , success: function (data) { cb(data); }
       , error: function (err) { console.error(err); }
     });
