@@ -218,7 +218,6 @@ html, body{
     height: 100%;
     text-align: left;
 
-
     header {
       position: relative;
       display: block;
@@ -348,6 +347,10 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
     padding:15px 20px;
   }
   transition: width 0.1s $group-expansion-function;
+}
+
+.group-threads {
+  display: none;  
 }
 
 /*

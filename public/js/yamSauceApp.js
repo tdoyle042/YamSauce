@@ -21,11 +21,10 @@ $(document).ready(function() {
   //
   // GET MASONRY GOIN'
   //
-  $('.content').masonry({
+  $(".content").masonry({
     columnWidth: '.message-wrapper',
     itemSelector: '.message-wrapper'
   });
-
 
   //
   // EVENT LISTENERS
