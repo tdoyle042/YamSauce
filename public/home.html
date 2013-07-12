@@ -15,9 +15,9 @@
 
 <!-- Header -->
 <header class="site-header">
-  <div class="logo">
+  <div class="logo-box">
     <div class="pure-menu">
-        <a class="pure-menu-heading">YAMMER</a>
+        <a class="pure-menu-heading logo">YAMMER</a>
     </div>
   </div>
 </header>
@@ -25,7 +25,7 @@
 <!-- Sidebar  -->
 <div class="sidebar">
   <div class="pure-menu pure-menu-open">
-      <a class="pure-menu-heading">YAMMER</a>
+      <a class="pure-menu-heading logo">YAMMER</a>
       <ul>
           <li><a href="#">Holy</a></li>
           <li><a href="#">Shit</a></li>
@@ -109,7 +109,7 @@
         {{content}} 
       </div>
       <footer>
-        <div class='meta'>{{likes}} Likes - {{comments.length}} Comments</div>
+        <div class='meta'>{{likes}} Likes<span class="meta-comments"> - {{comments.length}} Comments</span></div>
       </footer>
     </div>
     <div class='comments'>
