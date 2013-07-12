@@ -81,11 +81,5 @@ var ThreadView = Backbone.View.extend({
 		  
 		});
 
-		$(".group-threads").masonry({
-		  columnWidth: '.message-wrapper',
-		  itemSelector: '.message-wrapper'
-		});
-
-
 	}
 });
