@@ -5,6 +5,7 @@ var ThreadView = Backbone.View.extend({
 		this.template = $("#thread-template");
 	},
 	render : function(elem) {
+		console.log("JAD",this.thread);
 
 		var threadStarter = this.thread.threadStarter;
 		this.data = {
@@ -13,7 +14,8 @@ var ThreadView = Backbone.View.extend({
 			to : "Bob",
 			"time-stamp" : threadStarter.timestamp,
 			content : threadStarter.text.rich,
-			comments : this.thread.replies.models
+			comments : this.thread.replies.models,
+			likes: this.thread.threadStarter.attributes.liked_by.count
 		};
 		console.log("SALEM")
 		console.log(this.thread.replies)
