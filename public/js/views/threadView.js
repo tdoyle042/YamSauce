@@ -6,10 +6,9 @@ var ThreadView = Backbone.View.extend({
 	},
 	render : function(elem) {
 		var threadStarter = this.thread.threadStarter;
-		console.log(threadStarter);
 		this.data = {
-			avatar : "",
-			from : threadStarter.poster_id,
+			avatar : threadStarter.user.mugshot_url,
+			from : threadStarter.user.full_name,
 			to : "Bob",
 			"time-stamp" : threadStarter.timestamp,
 			content : threadStarter.text.plain,

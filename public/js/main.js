@@ -1,9 +1,14 @@
 var SauceApp = function (currentUser) {
   var log = function (d) { }
-  SauceUtil.init(currentUser);
+
+  var globalUsers = new UserCollection();
+
+  SauceUtil.init(currentUser, globalUsers);
 
   SauceUtil.getInboxMessages(function (msgData) {
     var inboxThreads = new ThreadCollection();
+
+    SauceUtil.extractGlobalUsers(msgData.references);
 
     var messages = msgData.messages;
     SauceUtil.addMessagesToThreads(messages, inboxThreads);
@@ -28,6 +33,8 @@ var SauceApp = function (currentUser) {
       SauceUtil.getGroupMessages(groupData.id, function (msgData) {
         // THIS ENTIRE FUNCTION DOESN'T TRIGGER UNTIL
         // THE API CALL FOR GETTING MESSAGES FROM A GROUP RETURNS
+
+        SauceUtil.extractGlobalUsers(msgData.references);
 
         var messages = msgData.messages;
         SauceUtil.addMessagesToThreads(messages, groupThreads);
