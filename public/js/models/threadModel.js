@@ -1,7 +1,8 @@
 var ThreadModel = Backbone.Model.extend({
-	initialize : function (id,threadStarter,replies) {
-		this.id = id;
-		this.threadStarter = threadStarter;
-		this.replies = replies;
+	initialize : function (params) {
+		this.id = params.id;
+		this.threadStarter = params.threadStarter;
+		this.replies = params.replies;
+		this.read = params.read;
 	}
 });

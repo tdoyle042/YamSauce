@@ -18,6 +18,7 @@ var GroupView = Backbone.View.extend({
 		};
 		this.$(".group-threads").hide();
 		this.$(".group-markasread").hide();
+		this.listenTo(this.group.threads,"change",this.threadsChanged);
 	},
 	render : function() {
 		this.$el.html(Mustache.render(this.template,this.data));
@@ -68,5 +69,8 @@ var GroupView = Backbone.View.extend({
 	},
 	markAsRead : function() {
 		return true;
+	},
+	threadsChanged : function() {
+		console.log("THREADS CHANGED!");
 	}
 });

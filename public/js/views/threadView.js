@@ -2,6 +2,7 @@ var ThreadView = Backbone.View.extend({
 	className : "threadView",
 	initialize : function(params) {
 		this.thread = params.thread;
+		this.thread.read = false;
 		this.template = $("#thread-template");
 	},
 	render : function(elem) {
@@ -46,10 +47,12 @@ var ThreadView = Backbone.View.extend({
 		  			});
 		});
 
+		var self = this;
 		// WHEN YOU CLICK MESSAGES THEY COME INTO FOCUS HELL YEAH.
 		$(".message").click(function() {
 
-
+			self.thread.set("read",true);
+			console.log(self.thread);
 			//TODO: ok this is really, really gross and hackey and I'm sorry
 		  if($(this).parent().hasClass("active"))
 		    return;

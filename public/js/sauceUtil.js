@@ -60,7 +60,11 @@ var SauceUtil = {
         // Message is the threadstarter
         var threadStarter = new MessageModel(msgData);
         var replies = new MessageCollection();
-        var thread = new ThreadModel(msgData.thread_id, threadStarter, replies);
+        var thread = new ThreadModel({ 
+          id : msgData.thread_id, 
+          threadStarter: threadStarter, 
+          replies: replies
+        });
         threadColl.add(thread);
       }
     });
