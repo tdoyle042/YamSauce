@@ -405,6 +405,8 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
 .group-threads {
   display: none;
   padding-top:20px;
+  text-align: center; 
+  margin-right: -40px;
 }
 
 .group-markasread {
@@ -413,8 +415,7 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
   height:40px;
   padding-bottom:10px;
   float:right;
-  text-align: center; 
-  margin-right: -40px;
+  
 }
 
 /*
