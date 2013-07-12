@@ -1,9 +1,9 @@
 var MessageModel = Backbone.Model.extend({
-	initialize : function (id,text,poster_id,timestamp,inReplyTo) {
-		this.id = id;
-		this.poster_id = poster_id;
-		this.text = text;
-		this.timestamp = timestamp;
-		this.inReplyTo = inReplyTo;
+	initialize : function (msgData) {
+		this.id = msgData.id;
+		this.poster_id = msgData.sender_id;
+		this.text = msgData.body;
+		this.timestamp = msgData.created_at;
+		this.inReplyTo = msgData.thread_id;
 	}
 });

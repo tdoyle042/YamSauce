@@ -54,26 +54,26 @@ var SauceUtil = {
     });
   }
   , addMessagesToThreads: function (messages, threadColl) {
-    _.each(messages, function (msg) {
-      if (msg.id === msg.thread_id) {
+    _.each(messages, function (msgData) {
+      if (msgData.id === msgData.thread_id) {
         // Message is the threadstarter
-        var threadStarter = new MessageModel(msg.id, msg.body, msg.sender_id, msg.created_at, null);
+        var threadStarter = new MessageModel(msgData);
         var replies = new MessageCollection();
-        var thread = new ThreadModel(msg.thread_id, threadStarter, replies);
+        var thread = new ThreadModel(msgData.thread_id, threadStarter, replies);
         threadColl.add(thread);
       }
     });
 
-    _.each(messages, function (msg) {
-      if (msg.id != msg.thread_id) {
+    _.each(messages, function (msgData) {
+      if (msgData.id != msgData.thread_id) {
         // Just a reply in the thread
-        var thread = threadColl.get(msg.thread_id);
+        var thread = threadColl.get(msgData.thread_id);
 
         // [NOTE] This is wrong, it's not necessarily in reply to the thread starter, it
         // may be in reply to a message in that thread, but that can be fixed later since
         // this will have pretty much the same behavior for now
         if (thread) {
-          var message = new MessageModel(msg.id, msg.body, msg.sender_id, msg.created_at, msg.thread_id);
+          var message = new MessageModel(msgData);
           thread.replies.add(message);
         }
       }
