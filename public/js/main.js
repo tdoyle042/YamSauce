@@ -64,6 +64,8 @@ var SauceApp = function (currentUser) {
           , threads: groupThreads
         });
 
+        $("#loading-message").hide();
+
         SauceApp.masterGroups.add(group);
 
         var groupView = new GroupView({ group: group });
