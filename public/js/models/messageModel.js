@@ -7,5 +7,6 @@ var MessageModel = Backbone.Model.extend({
 		this.inReplyTo = msgData.thread_id;
     this.user = SauceUtil.globalUsers.get(msgData.sender_id);
     this.likes = msgData.liked_by.count;
+    this.group_id = msgData.group_id;
 	}
 });

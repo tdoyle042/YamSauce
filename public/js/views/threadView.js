@@ -5,9 +5,9 @@ var ThreadView = Backbone.View.extend({
 		this.template = $("#thread-template");
 	},
 	render : function(elem) {
-		console.log("JAD",this.thread);
 
 		var threadStarter = this.thread.threadStarter;
+		var starterId = threadStarter.id;
 		this.data = {
 			avatar: threadStarter.user.mugshot_url
 			, from: threadStarter.user.full_name
@@ -16,6 +16,7 @@ var ThreadView = Backbone.View.extend({
 			, content: threadStarter.text.rich
 			, comments: this.thread.replies.models
 			, likes: threadStarter.likes
+			, starterId: starterId
 		};
 		
 		var el = Mustache.render(this.template.html(),this.data);
@@ -82,10 +83,17 @@ var ThreadView = Backbone.View.extend({
 		  		    $(this).addClass("pure-u-1-2");
 		  	    });
 		  });
-
-		  
-		  
 		});
 
-	}
+		$("#replySubmitButton"+starterId).click(function () {
+			var text = $("#replyText"+starterId).val();
+			if (text) {
+				SauceUtil.postGroupMessage(threadStarter.group_id, threadStarter.id, text, function (res) {
+					console.log(res);
+				});
+			}
+			$("#replyText"+starterId).val("");
+		});
+
+	} // end render function
 });
