@@ -6,6 +6,15 @@ var SauceApp = function (currentUser) {
 
   SauceApp.masterGroups = new GroupCollection();
 
+  SauceApp.masterGroups.on("change",function(){
+    var allRead = true;
+    SauceApp.masterGroups.each(function(group){
+
+      if(group.get("unreadCount") != 0) allRead = false;
+    });
+    if(allRead) { $("#empty-inbox").show(); }
+  },this);
+
   SauceUtil.getInboxMessages(function (msgData) {
     var inboxThreads = new ThreadCollection();
 

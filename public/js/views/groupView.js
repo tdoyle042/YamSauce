@@ -79,10 +79,13 @@ var GroupView = Backbone.View.extend({
 			thread.set("read",true);
 		});
 		this.viewExit();
+		this.unreadCount();
 		return true;
 	},
 	threadsChanged : function() {
-		this.$(".group-unread-count").html(this.unreadCount());
+		var unreadCount = this.unreadCount();
+		this.group.set("unreadCount",unreadCount);
+		this.$(".group-unread-count").html(this.unreadCount(unreadCount));
 	},
 	unreadCount : function() {
 		var count = 0;
