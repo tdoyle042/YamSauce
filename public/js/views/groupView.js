@@ -14,7 +14,7 @@ var GroupView = Backbone.View.extend({
 		this.threadViews = [];
 		this.data = {
 			"group-name" : this.group.name,
-			"group-unread-count" : 15
+			"group-unread-count" : this.unreadCount()
 		};
 		this.$(".group-threads").hide();
 		this.$(".group-markasread").hide();
@@ -54,6 +54,7 @@ var GroupView = Backbone.View.extend({
 					self.$(".group-threads").show();
 					self.$(".group-unread-count").hide();
 					self.$(".group-markasread").show();
+					// console.log(self.unreadCount());
 				}
 			});
 		}
@@ -62,6 +63,7 @@ var GroupView = Backbone.View.extend({
 			this.$(".group-threads").hide();
 			this.$(".group-markasread").hide();
 			this.$(".group-unread-count").show();
+			// console.log(this.unreadCount());
 		}
 
 		this.expanded = !this.expanded;
@@ -71,6 +73,13 @@ var GroupView = Backbone.View.extend({
 		return true;
 	},
 	threadsChanged : function() {
-		console.log("THREADS CHANGED!");
+		this.$(".group-unread-count").html(this.unreadCount());
+	},
+	unreadCount : function() {
+		var count = 0;
+		this.group.threads.each(function(thread,index,list){
+			if(!thread.get("read")) count++;
+		});
+		return count;
 	}
 });

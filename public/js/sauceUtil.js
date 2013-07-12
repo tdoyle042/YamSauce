@@ -71,7 +71,8 @@ var SauceUtil = {
         var thread = new ThreadModel({ 
           id : msgData.thread_id, 
           threadStarter: threadStarter, 
-          replies: replies
+          replies: replies,
+          read : false
         });
         threadColl.add(thread);
       }
