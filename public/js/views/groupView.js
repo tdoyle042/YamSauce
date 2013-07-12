@@ -70,6 +70,10 @@ var GroupView = Backbone.View.extend({
 		return true;
 	},
 	markAsRead : function() {
+		this.group.threads.each(function(thread){
+			thread.set("read",true);
+		});
+		this.viewExit();
 		return true;
 	},
 	threadsChanged : function() {
@@ -81,5 +85,16 @@ var GroupView = Backbone.View.extend({
 			if(!thread.get("read")) count++;
 		});
 		return count;
+	},
+	viewExit : function() {
+		// this.$el.removeClass("expanded-group");
+		// this.$(".group-threads").hide();
+		// this.$(".group-markasread").hide();
+		// this.$(".group-unread-count").show();
+		this.$el.animate({
+			opacity : 0
+		},200,function(){
+			$(this).remove();
+		});
 	}
 });
