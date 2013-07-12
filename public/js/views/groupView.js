@@ -20,9 +20,14 @@ var GroupView = Backbone.View.extend({
 		this.$(".group-markasread").hide();
 		this.listenTo(this.group.threads,"change",this.threadsChanged);
 	},
-	render : function() {
+	render : function(params) {
 		this.$el.html(Mustache.render(this.template,this.data));
-		$(".content").append(this.el);
+
+		if (params && params.isInbox) {
+			$(".inbox-messages").append(this.el);
+		} else {
+			$(".content").append(this.el);
+		}
 
 		var self = this;
 		var des = self.$(".group-threads");

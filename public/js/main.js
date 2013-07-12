@@ -37,7 +37,7 @@ var SauceApp = function (currentUser) {
     SauceApp.masterGroups.add(testGroup);
 
     var testGroupView = new GroupView({group: testGroup});
-    testGroupView.render();
+    testGroupView.render({ isInbox: true });
   });
 
   SauceUtil.getTopGroups(function (groupsData) {
