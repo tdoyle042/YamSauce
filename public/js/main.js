@@ -2,8 +2,9 @@ var SauceApp = function (currentUser) {
   var log = function (d) { }
 
   var globalUsers = new UserCollection();
-
   SauceUtil.init(currentUser, globalUsers);
+
+  SauceApp.masterGroups = new GroupCollection();
 
   SauceUtil.getInboxMessages(function (msgData) {
     var inboxThreads = new ThreadCollection();
@@ -23,12 +24,14 @@ var SauceApp = function (currentUser) {
         name : "Inbox Messages",
         threads : inboxThreads
     });
+
+    SauceApp.masterGroups.add(testGroup);
+
     var testGroupView = new GroupView({group: testGroup});
     testGroupView.render();
   });
 
   SauceUtil.getTopGroups(function (groupsData) {
-    var topGroups = new GroupCollection();
     _.each(groupsData, function (groupData) {
       var groupThreads = new ThreadCollection();
 
@@ -52,10 +55,10 @@ var SauceApp = function (currentUser) {
           , threads: groupThreads
         });
 
+        SauceApp.masterGroups.add(group);
+
         var groupView = new GroupView({ group: group });
         groupView.render();
-
-        topGroups.add(group);
       });
     });
   });
