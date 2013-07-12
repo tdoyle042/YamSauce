@@ -26,13 +26,24 @@ var SauceApp = function (currentUser) {
 
       // For the current group, grab its messages, add them to threads
       SauceUtil.getGroupMessages(groupData.id, function (msgData) {
+        // THIS ENTIRE FUNCTION DOESN'T TRIGGER UNTIL
+        // THE API CALL FOR GETTING MESSAGES FROM A GROUP RETURNS
+
         var messages = msgData.messages;
         SauceUtil.addMessagesToThreads(messages, groupThreads);
-      });
 
-      // Create the group model and add it to topGroups collection
-      var group = new GroupModel(groupData.id, groupThreads);
-      topGroups.add(group);
+        // Create the group model and add it to topGroups collection
+        var group = new GroupModel({
+          id: groupData.id
+          , name: groupData.full_name
+          , threads: groupThreads
+        });
+
+        var groupView = new GroupView({ group: group });
+        groupView.render();
+
+        topGroups.add(group);
+      });
     });
   });
 
