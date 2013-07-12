@@ -4,16 +4,18 @@ var msnry;
 
 // Document ready stuff
 $(document).ready(function() {
+  $(".sidebar").show();
+
   //
   // TEMPLATING (should be done before any other DOM-related stuff)
   //
 
   // Templates and Context (Change here when not testing)
-  // var message_template = $("#message-template").html();
-  // var message_context = test_messages
+  var message_template = $("#message-template").html();
+  var message_context = test_messages
 
   // MESSAGES
-  // $(".content").html(Mustache.render(message_template, message_context));
+  $(".content").html(Mustache.render(message_template, message_context));
 
 
   //
@@ -34,11 +36,11 @@ $(document).ready(function() {
     if($(this).parent().hasClass("active"))
       return;
 
-    var shadow = $("<div />").addClass("shadowbox").click(function(){
+    var shadow = $("<div />").addClass("shadowbox").hide().click(function(){
       $(".active").removeClass("active pure-u-1").addClass("pure-u-1-2")
           .find(".message")
             .removeClass("pure-u-1-2")
-          .end().find(".meta")
+          .end().find(".meta-comments")
             .show()
           .end()
           .find(".close")
@@ -46,11 +48,14 @@ $(document).ready(function() {
           .end()
           .height("auto");
 
-      $(this).remove();
+      $(this).fadeOut(function(){
+        $(".shadowbox").remove();
+      });
       $("content").masonry();
     });
 
     $("body").append(shadow);
+    $(".shadowbox").fadeIn();
 
     var current_height = $(this).parent().height();
 
@@ -61,7 +66,7 @@ $(document).ready(function() {
       .height(Math.max(current_height, 550))
       .siblings().removeClass("active");
     $(this).addClass("pure-u-1-2");
-    $(this).find(".meta").hide();
+    $(this).find(".meta-comments").hide();
   });
 
   // WHEN YOU CLOSE THINGS THEY CLOSE!
@@ -73,7 +78,7 @@ $(document).ready(function() {
 
   // WHEN YOU HOVER OVER THE YAMMER THING IT BRINGS DA MENU IN.
   $(".sidebar").css("margin-left","-350px");
-  $(".logo").hover(function() {
+  $(".logo-box").hover(function() {
     $(".sidebar").animate({marginLeft: 0}, 100);
   });
 
