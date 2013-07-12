@@ -8,7 +8,8 @@ var GroupView = Backbone.View.extend({
 	},
 	initialize : function(params) {
 		this.template = $("#group-template").html();
-		this.group = params.group
+		this.group = params.group;
+		this.threadViews = [];
 		this.data = {
 			"group-name" : this.group.name,
 			"group-unread-count" : 15
@@ -21,7 +22,8 @@ var GroupView = Backbone.View.extend({
 		// console.log(this.group.threads);
 		// console.log(this.group.threads.models);
 		_.map(this.group.threads.models,function(thread){
-			
+			var tv = new ThreadView({thread: thread});
+			this.threadView.add(tv);
 		});
 	},
 	toggleGroupState : function() {

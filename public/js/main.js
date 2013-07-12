@@ -2,39 +2,12 @@ var SauceApp = function (currentUser) {
   var log = function (d) { console.log(d); }
   SauceUtil.init(currentUser);
 
-  var inboxThreads = new ThreadCollection();
-  SauceUtil.getInboxMessages(function (data) {
+  SauceUtil.getInboxMessages(function (msgData) {
+    var inboxThreads = new ThreadCollection();
 
-    var messages = data.messages;
-
-    _.each(messages, function (msg) {
-      if (msg.id === msg.thread_id) {
-        // console.log(msg);
-        // Message is the threadstarter
-        var threadStarter = new MessageModel(msg.id, msg.body, msg.sender_id, msg.created_at, null);
-        var replies = new MessageCollection();
-        var thread = new ThreadModel(msg.thread_id, threadStarter, replies);
-        // console.log(thread);
-
-        inboxThreads.add(thread);
-      }
-    });
+    var messages = msgData.messages;
+    SauceUtil.addMessagesToThreads(messages, inboxThreads);
     
-    _.each(messages, function (msg) {
-      if (msg.id != msg.thread_id) {
-        // Just a reply in the thread
-        var thread = inboxThreads.get(msg.thread_id);
-
-        // [NOTE] This is wrong, it's not necessarily in reply to the thread starter, it 
-        // may be in reply to a message in that thread, but that can be fixed later since
-        // this will have pretty much the same behavior for now
-        if (thread) {
-          var message = new MessageModel(msg.id, msg.body, msg.sender_id, msg.created_at, msg.thread_id);
-          thread.replies.add(message);
-        }
-      }
-    });
-
     $("#loading-message").hide();
     //Testing Creating Thread Views and Such
     var testGroup = new GroupModel({
@@ -46,7 +19,22 @@ var SauceApp = function (currentUser) {
     testGroupView.render();
   });
 
-  
+  SauceUtil.getTopGroups(function (groupsData) {
+    var topGroups = new GroupCollection();
+    _.each(groupsData, function (groupData) {
+      var groupThreads = new ThreadCollection();
+
+      // For the current group, grab its messages, add them to threads
+      SauceUtil.getGroupMessages(groupData.id, function (msgData) {
+        var messages = msgData.messages;
+        SauceUtil.addMessagesToThreads(messages, groupThreads);
+      });
+
+      // Create the group model and add it to topGroups collection
+      var group = new GroupModel(groupData.id, groupThreads);
+      topGroups.add(group);
+    });
+  });
 
   // SauceUtil.getCurrentUser(log);
   // SauceUtil.getTopGroups(log);
