@@ -120,6 +120,21 @@
     </div>
     <div class='comments'>
       <ul>
+      {{#comments}}
+      <li class="comment">
+        <header>
+          <div class="avatar">
+            <img src='{{{user.mugshot_url}}}' />
+          </div>
+          <div class="comment-from-info">
+            <div class="comment-from">{{user.full_name}}</div>
+            <div class="comment-timestamp">{{time}}</div>
+          </div>
+        </header>
+          <div class="comment-body">{{{text.rich}}}</div>
+          <div class="comment-meta">{{attributes.liked_by.count}} likes</div>
+      </li>
+      {{/comments}}
       </ul>
     </div>
   </div>
