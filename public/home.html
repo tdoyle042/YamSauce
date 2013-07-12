@@ -27,14 +27,14 @@
   <div class="pure-menu pure-menu-open">
       <a class="pure-menu-heading">YAMMER</a>
       <ul>
-          <li><a href="#">Flickr</a></li>
-          <li><a href="#">Messenger</a></li>
-          <li><a href="#">Sports</a></li>
-          <li><a href="#">Finance</a></li>
+          <li><a href="#">Holy</a></li>
+          <li><a href="#">Shit</a></li>
+          <li><a href="#">No</a></li>
+          <li><a href="#">WAY</a></li>
           <li class="pure-menu-heading">More Sites!</li>
-          <li><a href="#">Games</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">OMG!</a></li>
+          <li><a href="#">It's</a></li>
+          <li><a href="#">HACK</a></li>
+          <li><a href="#">DAY!</a></li>
       </ul>
   </div>
 </div>
@@ -43,12 +43,13 @@
 <div class="container">
   <div class="pure-g">
 
-    <!-- Main content -->
-    <div class="content-wrapper pure-u-1">
+    <!-- Main content, needs to be looped. -->
+    <div class="content-wrapper pure-u-1"> 
       <div class="content">
 
+          <!-- Messages here -->
 
-      </div>
+      </div>  
     </div>
 
   </div>
@@ -83,11 +84,6 @@
 <script src="/js/main.js"></script>
 <script src="/js/yamSauceApp.js"></script>
 <script src="/js/test.js"></script>
-<script>
-
-
-
-</script>
 
 
 <!-- TEMPLATES FOR EVERYONE -->
@@ -96,6 +92,7 @@
 
   {{#messages}}
   <div class='message-wrapper pure-u-1-2'>
+    <div class='close'>&times;</div>
     <div class='message'>
       <header>
         <div class='header-row'>
@@ -118,13 +115,25 @@
     <div class='comments'>
       <ul>
         {{#comments}}
-        <li class="comment">{{from}}: {{content}}</li>
+        <li class="comment">
+          <header>
+            <div class="avatar">
+              <img src='{{{avatar}}}' />
+            </div>
+            <div class="comment-from-info">
+              <div class="comment-from">{{from}}</div>
+              <div class="comment-timestamp">{{time}}</div>
+            </div>
+          </header>
+            <div class="comment-body">{{content}}</div>
+            <div class="comment-meta">{{likes}} likes</div>
+        </li>
         {{/comments}}
       </ul>
     </div>
   </div>
   {{/messages}}
-</script>
+</script> 
 
   <script id="group-template" type="text/x-mustache-template">
     <div class="group-header">

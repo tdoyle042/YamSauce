@@ -17,9 +17,9 @@
         return "Likes";
     },
     comments: [
-      { from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it." }, 
-      { from: "Mos Def", time: "Slightly later", content: "Mos def." }, 
-      { from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home." }
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Mos Def", time: "Slightly later", content: "Mos def." }, 
+      {avatar: "img/salem-avatar.jpg", from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home.", likes: 12 }
     ]
   },
   {
@@ -36,9 +36,9 @@
         return "Likes";
     },
     comments: [
-      { from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it." }, 
-      { from: "Jacques Greene", time: "Jul. 11, 2:37pm", content: "You probably haven't heard of me." }, 
-      { from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home." }
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Jacques Greene", time: "Jul. 11, 2:37pm", content: "You probably haven't heard of me.", likes: 0}, 
+      {avatar: "img/salem-avatar.jpg", from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home.", likes: 12 }
     ]
   },
   {
@@ -55,10 +55,10 @@
         return "Likes";
     },
     comments: [
-      { from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it." }, 
-      { from: "Jacques Greene", time: "Jul. 11, 2:37pm", content: "You probably haven't heard of me." }, 
-      { from: "Skrillex", time: "Jul. 11, 2:39pm", content: "...what" }, 
-      { from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home." }
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Jacques Greene", time: "Jul. 11, 2:37pm", content: "You probably haven't heard of me.", likes: 0}, 
+      {avatar: "img/salem-avatar.jpg", from: "Skrillex", time: "Jul. 11, 2:39pm", content: "...what", likes: 2 }, 
+      {avatar: "img/salem-avatar.jpg", from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home.", likes: 12 }
     ]
   },
   {
@@ -75,8 +75,8 @@
         return "Likes";
     },
     comments: [
-      { from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it." }, 
-      { from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home." }
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home.", likes: 12 }
     ]
   },
   {
@@ -93,7 +93,7 @@
         return "Likes";
     },
     comments: [
-      { from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home." }
+      {avatar: "img/salem-avatar.jpg", from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home.", likes: 12 }
     ]
   },
   {
@@ -110,10 +110,20 @@
         return "Likes";
     },
     comments: [
-      { from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it." }, 
-      { from: "Mos Def", time: "Slightly later", content: "Mos def." }, 
-      { from: "Skrillex", time: "Jul. 11, 2:39pm", content: "...what" }, 
-      { from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home." }
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Channing Tatum", time: "Yesterday", content: "If I weren't Channing Tatum I'd hate it.", likes: 4}, 
+      {avatar: "img/salem-avatar.jpg", from: "Mos Def", time: "Slightly later", content: "Mos def." }, 
+      {avatar: "img/salem-avatar.jpg", from: "Skrillex", time: "Jul. 11, 2:39pm", content: "...what", likes: 2 }, 
+      {avatar: "img/salem-avatar.jpg", from: "Tommy or Schallert or someone", time: "Jul. 11, 2:57", content: "Everyone go home.", likes: 12 }
     ]
   }
 ]}

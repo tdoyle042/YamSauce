@@ -92,15 +92,97 @@ html, body{
   }
 }
 
+.avatar {
+  display: inline-block;
+
+  img {
+    @include rounded-edges(50%);
+    width: 75px;
+    height: 75px;
+    border: 2px solid #666666;
+  }
+}
+
 .message-wrapper {
   padding-right: $grid-padding;
   padding-bottom: $grid-padding;
   text-align: left;
+
+  .close {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 62px;
+    border: 2px solid #333;
+    color: #333;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    padding-left: 5px;
+    padding-top: 0px;
+    z-index: 9999;
+  }
+
+  .close:hover {
+    color: #ccc;
+    border: 2px solid #ccc;
+
+  }
   
   .comments {
     display: none;
     background: white;
     height: 100%;
+    overflow-y: scroll;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .comment {
+      border-bottom: 1px solid #dfdfdf;
+
+      header {
+        position: relative;
+        display: block;
+        padding-left: 25px;
+        padding-top: 25px;
+        padding-right: 25px;
+      }
+
+      .comment-from-info {
+        display: inline-block;
+        margin: {
+          left: 15px;
+          bottom: 15px;
+        }
+
+        position: absolute;
+        top: 45px;
+        left: 100px;
+      }
+
+      .comment-from {
+        font-size: 1.5em;
+      }
+      .comment-timestamp {
+        font-size: .75em;
+      }
+
+      .comment-body {
+        padding: 25px;
+      }
+
+      .comment-meta {
+        padding: {
+          bottom: 25px;
+          left: 25px;
+        }
+      }
+    }
+
   }
 
   .message {
@@ -131,16 +213,6 @@ html, body{
         right: 25px;
         bottom: 15px;
         top: 15px
-      }
-    }
-    
-    .avatar {
-      display: inline-block;
-
-      img {
-        @include rounded-edges(50%);
-        width: 75px;
-        height: 75px;
       }
     }
 
@@ -185,6 +257,10 @@ html, body{
     width: 50%;
     display: inline-block;
     float: left;
+  }
+
+  .message-body {
+    padding-right: 40px;
   }
 }
 

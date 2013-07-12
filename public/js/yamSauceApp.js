@@ -25,9 +25,7 @@ $(document).ready(function() {
   //
   // GET MASONRY GOIN'
   //
-  var container = document.querySelector('.content');
-
-  msnry = new Masonry( container, {
+  $('.content').masonry({
     columnWidth: '.message-wrapper',
     itemSelector: '.message-wrapper'
   });
@@ -43,20 +41,41 @@ $(document).ready(function() {
       return;
 
     var shadow = $("<div />").addClass("shadowbox").click(function(){
-      msnry.unstamp($(".message-wrapper").toArray());
       $(".active").removeClass("active pure-u-1").addClass("pure-u-1-2")
-          .children(".message").removeClass("pure-u-1-2");
+          .find(".message")
+            .removeClass("pure-u-1-2")
+          .end().find(".meta")
+            .show()
+          .end()
+          .find(".close")
+            .hide()
+          .end()
+          .height("auto");
 
       $(this).remove();
-      msnry.layout();
+      $("content").masonry();
     });
 
     $("body").append(shadow);
-    $(this).parent().addClass("active pure-u-1").removeClass("pure-u-1-2").siblings().removeClass("active");
+
+    var current_height = $(this).parent().height();
+
+    $(this).parent()
+      .addClass("active pure-u-1")
+      .removeClass("pure-u-1-2")
+      .find(".close").show().end()
+      .height(Math.max(current_height, 550))
+      .siblings().removeClass("active");
     $(this).addClass("pure-u-1-2");
-    msnry.stamp($(this).parent()[0]);
+    $(this).find(".meta").hide();
   });
 
+  // WHEN YOU CLOSE THINGS THEY CLOSE!
+  $(".close").click(function(){
+    // Super lame, I know, but hackathon so whatever
+    console.log("shadowbox click!");
+    $(".shadowbox").click();
+  });
 
   // WHEN YOU HOVER OVER THE YAMMER THING IT BRINGS DA MENU IN.
   $(".sidebar").css("margin-left","-350px");

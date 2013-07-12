@@ -80,18 +80,97 @@ html, body {
 }
 
 /* line 95, ../../sass/style.scss */
+.avatar {
+  display: inline-block;
+}
+/* line 98, ../../sass/style.scss */
+.avatar img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  border: 2px solid #666666;
+}
+
+/* line 106, ../../sass/style.scss */
 .message-wrapper {
   padding-right: 40px;
   padding-bottom: 40px;
   text-align: left;
 }
-/* line 100, ../../sass/style.scss */
+/* line 111, ../../sass/style.scss */
+.message-wrapper .close {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 62px;
+  border: 2px solid #333;
+  color: #333;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  padding-left: 5px;
+  padding-top: 0px;
+  z-index: 9999;
+}
+/* line 126, ../../sass/style.scss */
+.message-wrapper .close:hover {
+  color: #ccc;
+  border: 2px solid #ccc;
+}
+/* line 132, ../../sass/style.scss */
 .message-wrapper .comments {
   display: none;
   background: white;
   height: 100%;
+  overflow-y: scroll;
 }
-/* line 106, ../../sass/style.scss */
+/* line 138, ../../sass/style.scss */
+.message-wrapper .comments ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 144, ../../sass/style.scss */
+.message-wrapper .comments .comment {
+  border-bottom: 1px solid #dfdfdf;
+}
+/* line 147, ../../sass/style.scss */
+.message-wrapper .comments .comment header {
+  position: relative;
+  display: block;
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-right: 25px;
+}
+/* line 155, ../../sass/style.scss */
+.message-wrapper .comments .comment .comment-from-info {
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  position: absolute;
+  top: 45px;
+  left: 100px;
+}
+/* line 167, ../../sass/style.scss */
+.message-wrapper .comments .comment .comment-from {
+  font-size: 1.5em;
+}
+/* line 170, ../../sass/style.scss */
+.message-wrapper .comments .comment .comment-timestamp {
+  font-size: .75em;
+}
+/* line 174, ../../sass/style.scss */
+.message-wrapper .comments .comment .comment-body {
+  padding: 25px;
+}
+/* line 178, ../../sass/style.scss */
+.message-wrapper .comments .comment .comment-meta {
+  padding-bottom: 25px;
+  padding-left: 25px;
+}
+/* line 188, ../../sass/style.scss */
 .message-wrapper .message {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
@@ -101,7 +180,7 @@ html, body {
   height: 100%;
   text-align: left;
 }
-/* line 114, ../../sass/style.scss */
+/* line 196, ../../sass/style.scss */
 .message-wrapper .message header {
   position: relative;
   display: block;
@@ -111,71 +190,63 @@ html, body {
   padding-right: 25px;
   padding-bottom: 15px;
 }
-/* line 123, ../../sass/style.scss */
+/* line 205, ../../sass/style.scss */
 .message-wrapper .message header .header-row {
   overflow: auto;
 }
-/* line 128, ../../sass/style.scss */
+/* line 210, ../../sass/style.scss */
 .message-wrapper .message footer {
   padding-left: 25px;
   padding-right: 25px;
   padding-bottom: 15px;
   padding-top: 15px;
 }
-/* line 137, ../../sass/style.scss */
-.message-wrapper .message .avatar {
-  display: inline-block;
-}
-/* line 140, ../../sass/style.scss */
-.message-wrapper .message .avatar img {
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  width: 75px;
-  height: 75px;
-}
-/* line 147, ../../sass/style.scss */
+/* line 219, ../../sass/style.scss */
 .message-wrapper .message .to-from {
   display: inline-block;
   font-size: 1.5em;
   margin-left: 15px;
   margin-bottom: 15px;
 }
-/* line 155, ../../sass/style.scss */
+/* line 227, ../../sass/style.scss */
 .message-wrapper .message .to-from span {
   font-size: .75em;
 }
-/* line 160, ../../sass/style.scss */
+/* line 232, ../../sass/style.scss */
 .message-wrapper .message .timestamp {
   font-size: .8em;
   color: #777;
 }
-/* line 165, ../../sass/style.scss */
+/* line 237, ../../sass/style.scss */
 .message-wrapper .message .message-body {
   padding: 25px;
   border-bottom: 1px solid #dfdfdf;
   font-size: .95em;
   line-height: 1.35em;
 }
-/* line 172, ../../sass/style.scss */
+/* line 244, ../../sass/style.scss */
 .message-wrapper .message .content {
   display: none;
 }
 
-/* line 179, ../../sass/style.scss */
+/* line 251, ../../sass/style.scss */
 .active {
   width: 100% !important;
   z-index: 1000;
   left: 0 !important;
 }
-/* line 184, ../../sass/style.scss */
+/* line 256, ../../sass/style.scss */
 .active .message, .active .comments {
   width: 50%;
   display: inline-block;
   float: left;
 }
+/* line 262, ../../sass/style.scss */
+.active .message-body {
+  padding-right: 40px;
+}
 
-/* line 193, ../../sass/style.scss */
+/* line 269, ../../sass/style.scss */
 .shadowbox {
   position: fixed;
   top: 0;
@@ -189,14 +260,14 @@ html, body {
 /*
   Group View
 */
-/* line 206, ../../sass/style.scss */
+/* line 282, ../../sass/style.scss */
 .group-view {
   width: 400px;
   margin: 10px auto;
   animation: grow;
 }
 
-/* line 212, ../../sass/style.scss */
+/* line 288, ../../sass/style.scss */
 .group-header {
   font-weight: 300;
   background-color: #3b53ff;
@@ -206,20 +277,20 @@ html, body {
   text-align: left;
 }
 
-/* line 221, ../../sass/style.scss */
+/* line 297, ../../sass/style.scss */
 .group-name {
   display: inline-block;
   font-size: 20px;
 }
 
-/* line 225, ../../sass/style.scss */
+/* line 301, ../../sass/style.scss */
 .group-unread-count {
   display: inline-block;
   padding-left: 20px;
   float: right;
 }
 
-/* line 231, ../../sass/style.scss */
+/* line 307, ../../sass/style.scss */
 .expanded-group {
   width: 650px;
 }
@@ -231,17 +302,17 @@ html, body {
 /*
  * TESTING SHIT
  **********************************/
-/* line 247, ../../sass/style.scss */
+/* line 323, ../../sass/style.scss */
 .test1 {
   height: 400px;
 }
 
-/* line 251, ../../sass/style.scss */
+/* line 327, ../../sass/style.scss */
 .test2 {
   height: 350px;
 }
 
-/* line 255, ../../sass/style.scss */
+/* line 331, ../../sass/style.scss */
 .test3 {
   height: 300px;
 }
