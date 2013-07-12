@@ -19,8 +19,8 @@ var SauceApp = function (currentUser) {
     testGroupView.render();
   });
 
-  var topGroups = new GroupCollection();
   SauceUtil.getTopGroups(function (groupsData) {
+    var topGroups = new GroupCollection();
     _.each(groupsData, function (groupData) {
       var groupThreads = new ThreadCollection();
 
