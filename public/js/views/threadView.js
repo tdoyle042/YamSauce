@@ -67,7 +67,6 @@ var ThreadView = Backbone.View.extend({
 		  var current_height = $(this).parent().height();
 
 		  var that = $(this).parent();
-		  that.height(Math.max(current_height, 550));
 		  that.find(".meta-comments").hide();
 
 		  that
