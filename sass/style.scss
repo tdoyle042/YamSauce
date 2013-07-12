@@ -301,6 +301,7 @@ html, body{
       border-bottom: 1px solid #dfdfdf;
       font-size: .95em;
       line-height: 1.5em;
+      word-wrap: break-word;
     }
 
     .content {
@@ -404,6 +405,7 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
   display: none;
   padding-top:20px;
   text-align: center; 
+  margin-right: -40px;
 }
 
 /*

@@ -53,7 +53,7 @@ var ThreadView = Backbone.View.extend({
 		    				      $(".shadowbox").remove();
 		    				    });
 		    				    $("content").masonry();
-		    			})
+		    			});
 		    		
 
 		    
