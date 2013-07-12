@@ -29,25 +29,32 @@ var ThreadView = Backbone.View.extend({
           // that.addClass(".read-message");
 
           //So Ghetto it makes me cry :'(
-          that.find(".message").css("background-color","#aaa");
-          that.find(".message-body").css("border-bottom","1px solid #777");
-          that.find("header").css("border-bottom","1px solid #777");
+          // that.find(".message")
 
           that
                 .find(".close").hide().end()
                 .find(".comments")
                     .animate({marginLeft: "-50%"}, 300, function(){
                         that
-                                .removeClass("active pure-u-1").addClass("pure-u-1-2")
+		                        .height("auto")
+                    				.css("opacity", "0.5")
+                            .removeClass("active pure-u-1").addClass("pure-u-1-2")
                             .find(".message")
                               .removeClass("pure-u-1-2")
+                    					.css("background-color","#aaa")
                             .end().find(".meta-comments")
                               .show()
                             .end()
                             .find(".close")
                               .hide()
                             .end()
-                            .height("auto");
+                            .find(".message-body")
+                            	.css("border-bottom","1px solid #777")
+                            .end().find("header")
+                            	.css("border-bottom","1px solid #777")
+                            .end();
+
+                            
 
                             $(".shadowbox").fadeOut(300, function(){
                               $(".shadowbox").remove();
