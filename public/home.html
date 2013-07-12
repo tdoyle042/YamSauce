@@ -106,7 +106,7 @@
         <div class='timestamp'>{{timestamp}}</div>
       </header>
       <div class='message-body'>
-        {{content}} 
+        {{{content}}}
       </div>
       <footer>
         <div class='meta'>{{likes}} Likes<span class="meta-comments"> - {{comments.length}} Comments</span></div>
@@ -134,6 +134,9 @@
           <div class="comment-body">{{{text.rich}}}</div>
           <div class="comment-meta">{{attributes.liked_by.count}} likes</div>
       </li>
+      {{/comments}}
+      {{^comments}}
+      <li class="no-comments">No comments</li>
       {{/comments}}
       </ul>
     </div>

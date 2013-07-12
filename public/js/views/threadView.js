@@ -12,7 +12,7 @@ var ThreadView = Backbone.View.extend({
 			from : threadStarter.user.full_name,
 			to : "Bob",
 			"time-stamp" : threadStarter.timestamp,
-			content : threadStarter.text.plain,
+			content : threadStarter.text.rich,
 			comments : this.thread.replies.models
 		};
 		console.log("SALEM")
