@@ -26,7 +26,7 @@ var GroupView = Backbone.View.extend({
 
 		var self = this;
 		var des = self.$(".group-threads");
-		_.map(this.group.threads.models,function(thread){
+		_.each(this.group.threads.models,function(thread){
 			var tv = new ThreadView({thread: thread});
 			tv.render(des);
 			self.threadViews.push(tv);
@@ -64,6 +64,10 @@ var GroupView = Backbone.View.extend({
 			this.$(".group-markasread").hide();
 			this.$(".group-unread-count").show();
 			// console.log(this.unreadCount());
+			var self = this;
+			_.each(this.threadViews,function(tv){
+				tv.$el.remove();
+			});
 		}
 
 		this.expanded = !this.expanded;
