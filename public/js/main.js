@@ -5,6 +5,7 @@ var SauceApp = function (currentUser) {
   var inboxThreads = new ThreadCollection();
   SauceUtil.getInboxMessages(function (data) {
     var messages = data.messages;
+
     _.each(messages, function (msg) {
       if (msg.id === msg.thread_id) {
         // Message is the threadstarter
@@ -14,6 +15,7 @@ var SauceApp = function (currentUser) {
         inboxThreads.add(thread);
       }
     });
+    
     _.each(messages, function (msg) {
       if (msg.id != msg.thread_id) {
         // Just a reply in the thread
