@@ -18,8 +18,10 @@ var ThreadView = Backbone.View.extend({
 		elem.append(el);
 
 		// WHEN YOU CLOSE THINGS THEY CLOSE!
+		$(".close").unbind("click");
 		$(".close").click(function(){
 		  // Super lame, I know, but hackathon so whatever
+		  console.log("Closing");
 		  var that = $(".active")
 
 		  that
@@ -37,7 +39,6 @@ var ThreadView = Backbone.View.extend({
 		  				      .hide()
 		  				    .end()
 		  				    .height("auto");
-		  				    // .animate({width: "50%"});
 
 		  				    $(".shadowbox").fadeOut(300, function(){
 		  				      $(".shadowbox").remove();
