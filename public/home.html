@@ -48,6 +48,7 @@
       <div class="content">
         <div id="loading-message">
           <h1>It's Loading Bitches...</h1>
+          <img src="img/nyancat.gif">
         </div>
       </div>
     </div>
@@ -88,7 +89,7 @@
 
 <!-- TEMPLATES FOR EVERYONE -->
 
-<script id="message-template" type="text/x-mustache-template">
+<script id="thread-template" type="text/x-mustache-template">
 
   <div class='message-wrapper pure-u-1-2'>
     <div class='close'>&times;</div>
@@ -113,25 +114,26 @@
     </div>
     <div class='comments'>
       <ul>
-        {{#comments}}
-        <li class="comment">
-          <header>
-            <div class="avatar">
-              <img src='{{{avatar}}}' />
-            </div>
-            <div class="comment-from-info">
-              <div class="comment-from">{{from}}</div>
-              <div class="comment-timestamp">{{time}}</div>
-            </div>
-          </header>
-            <div class="comment-body">{{content}}</div>
-            <div class="comment-meta">{{likes}} likes</div>
-        </li>
-        {{/comments}}
       </ul>
     </div>
   </div>
 </script> 
+
+<script id="message-template" type="text/x-mustache-template">
+  <li class="comment">
+    <header>
+      <div class="avatar">
+        <img src='{{{avatar}}}' />
+      </div>
+      <div class="comment-from-info">
+        <div class="comment-from">{{from}}</div>
+        <div class="comment-timestamp">{{time}}</div>
+      </div>
+    </header>
+      <div class="comment-body">{{content}}</div>
+      <div class="comment-meta">{{likes}} likes</div>
+  </li>
+</script>
 
   <script id="group-template" type="text/x-mustache-template">
     <div class="group-header">

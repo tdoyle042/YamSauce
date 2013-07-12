@@ -19,12 +19,13 @@ var GroupView = Backbone.View.extend({
 		this.$el.html(Mustache.render(this.template,this.data));
 		$(".content").append(this.el);
 
-		// console.log(this.group.threads);
-		// console.log(this.group.threads.models);
+		var self = this;
 		_.map(this.group.threads.models,function(thread){
 			var tv = new ThreadView({thread: thread});
-			this.threadView.add(tv);
+			tv.render(this.$(".group-threads"));
+			self.threadViews.push(tv);
 		});
+
 	},
 	toggleGroupState : function() {
 
