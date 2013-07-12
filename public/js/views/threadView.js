@@ -20,8 +20,30 @@ var ThreadView = Backbone.View.extend({
 		// WHEN YOU CLOSE THINGS THEY CLOSE!
 		$(".close").click(function(){
 		  // Super lame, I know, but hackathon so whatever
-		  console.log("shadowbox click!");
-		  $(".shadowbox").click();
+		  var that = $(".active")
+
+		  that
+		  		.find(".close").hide().end()
+		  		.find(".comments")
+		  			.animate({marginLeft: "-50%"}, 300, function(){
+		  				that
+		  						.removeClass("active pure-u-1").addClass("pure-u-1-2")
+		  				    .find(".message")
+		  				      .removeClass("pure-u-1-2")
+		  				    .end().find(".meta-comments")
+		  				      .show()
+		  				    .end()
+		  				    .find(".close")
+		  				      .hide()
+		  				    .end()
+		  				    .height("auto");
+		  				    // .animate({width: "50%"});
+
+		  				    $(".shadowbox").fadeOut(300, function(){
+		  				      $(".shadowbox").remove();
+		  				    });
+		  				    $(".group-threads").masonry();
+		  			});
 		});
 
 		// WHEN YOU CLICK MESSAGES THEY COME INTO FOCUS HELL YEAH.
