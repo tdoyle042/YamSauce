@@ -19,7 +19,7 @@ $grid-padding: 40px;
   -webkit-box-sizing: border-box; 
      -moz-box-sizing: border-box; 
           box-sizing: border-box; 
-  }
+}
 
 html, body{
   height: 100%;
@@ -30,8 +30,7 @@ html, body{
  **********************************/
 
 .container {
-  // max-width: 1920px;
-  width: 1220px;
+  width: 1140px;
   height: 100%;
   margin: {
     top: 50px;
@@ -48,29 +47,6 @@ html, body{
     left: $grid-padding;
     bottom: $grid-padding;
     top: $grid-padding/2;
-  }
-}
-
-.jumpbar {
-
-  height: 100%;
-  text-align: right;
-  margin-top: $grid-padding;
-
-  ul {
-    color: #777;
-    list-style: none;
-    margin: 0;
-    text-transform: uppercase;
-    font-size: .8em;
-
-    .active {
-      color: #0088cc;
-    }
-
-    li {
-      padding-bottom: 8px;
-    }
   }
 }
 
@@ -119,83 +95,100 @@ html, body{
 .message-wrapper {
   padding-right: $grid-padding;
   padding-bottom: $grid-padding;
+  text-align: left;
+  
+  .comments {
+    display: none;
+    background: white;
+    height: 100%;
+  }
+
+  .message {
+    @include rounded-edges(1px);
+    border: 1px solid #dfdfdf;
+    background-color: #efefef;
+    height: 100%;
+    text-align: left;
+
+
+    header {
+      position: relative;
+      display: block;
+      border-bottom: 1px solid #dfdfdf;
+      padding-left: 25px;
+      padding-top: 25px;
+      padding-right: 25px;
+      padding-bottom: 15px;
+
+      .header-row {
+        overflow: auto;
+      }
+    }
+
+    footer {
+      padding: {
+        left: 25px;
+        right: 25px;
+        bottom: 15px;
+        top: 15px
+      }
+    }
+    
+    .avatar {
+      display: inline-block;
+
+      img {
+        @include rounded-edges(50%);
+        width: 75px;
+        height: 75px;
+      }
+    }
+
+    .to-from {
+      display: inline-block;
+      font-size: 1.5em;
+      margin: {
+        left: 15px;
+        bottom: 15px;
+      }
+
+      span {
+        font-size: .75em;
+      }
+    }
+
+    .timestamp {
+      font-size: .8em;
+      color: #777;
+    }
+
+    .message-body{ 
+      padding: 25px;
+      border-bottom: 1px solid #dfdfdf;
+      font-size: .95em;
+      line-height: 1.35em;
+    }
+
+    .content {
+      display: none;
+    }
+
+  }
 }
 
 .active {
   width: 100% !important;
   z-index: 1000;
   left: 0 !important;
+
+  .message, .comments {
+    width: 50%;
+    display: inline-block;
+    float: left;
+  }
 }
 
-.message {
-  @include rounded-edges(1px);
-  border: 1px solid #dfdfdf;
-  background-color: #efefef;
-  height: 100%;
 
-  header {
-    position: relative;
-    display: block;
-    border-bottom: 1px solid #dfdfdf;
-    padding-left: 25px;
-    padding-top: 25px;
-    padding-right: 25px;
-    padding-bottom: 15px;
-
-    .header-row {
-      overflow: auto;
-    }
-  }
-
-  footer {
-    padding: {
-      left: 25px;
-      right: 25px;
-      bottom: 15px;
-      top: 15px
-    }
-  }
-  
-  .avatar {
-    display: inline-block;
-
-    img {
-      @include rounded-edges(50%);
-      width: 75px;
-      height: 75px;
-    }
-  }
-
-  .to-from {
-    display: inline-block;
-    font-size: 1.5em;
-    margin: {
-      left: 15px;
-      bottom: 15px;
-    }
-
-    span {
-      font-size: .75em;
-    }
-  }
-
-  .timestamp {
-    font-size: .8em;
-    color: #777;
-  }
-
-  .message-body{ 
-    padding: 25px;
-    border-bottom: 1px solid #dfdfdf;
-    font-size: .95em;
-    line-height: 1.35em;
-  }
-
-  .content {
-    display: none;
-  }
-
-}
 
 .shadowbox {
   position: fixed;
