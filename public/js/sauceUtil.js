@@ -21,6 +21,10 @@ var SauceUtil = {
     yam.request({
       url: "https://www.yammer.com/api/v1/messages/private.json"
       , method: "GET"
+      , data: {
+        threaded: "extended"
+        , limit: 10
+      }
       , success: function (data) { cb(data); }
       , error: function (err) { console.error(err); }
     });
@@ -29,6 +33,10 @@ var SauceUtil = {
     yam.request({
       url: "https://www.yammer.com/api/v1/messages/in_group/" + groupId + ".json"
       , method: "GET"
+      , data: {
+        threaded: "extended"
+        , limit: 10
+      }
       , success: function (data) { cb(data); }
       , error: function (err) { console.error(err); }
     });
@@ -82,6 +90,17 @@ var SauceUtil = {
           thread.replies.add(message);
         }
       }
+    });
+  }
+  , addCommentsToThreads: function (threaded_extended, threadColl) {
+    _.each(threaded_extended, function (comments, threadId) {
+      _.each(comments, function (msgData) {
+        var thread = threadColl.get(threadId);
+        if (thread) {
+          var message = new MessageModel(msgData);
+          thread.replies.add(message);
+        }
+      });
     });
   }
   , extractGlobalUsers: function (references) {

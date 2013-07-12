@@ -12,6 +12,9 @@ var SauceApp = function (currentUser) {
 
     var messages = msgData.messages;
     SauceUtil.addMessagesToThreads(messages, inboxThreads);
+
+    var threaded_extended = msgData.threaded_extended;
+    SauceUtil.addCommentsToThreads(threaded_extended, inboxThreads);
     
     $("#loading-message").hide();
     //Testing Creating Thread Views and Such
@@ -38,6 +41,9 @@ var SauceApp = function (currentUser) {
 
         var messages = msgData.messages;
         SauceUtil.addMessagesToThreads(messages, groupThreads);
+
+        var threaded_extended = msgData.threaded_extended;
+        SauceUtil.addCommentsToThreads(threaded_extended, groupThreads);
 
         // Create the group model and add it to topGroups collection
         var group = new GroupModel({

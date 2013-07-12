@@ -106,20 +106,39 @@
         <div class='timestamp'>{{timestamp}}</div>
       </header>
       <div class='message-body'>
-        {{content}} 
+        {{{content}}}
       </div>
       <footer>
         <div class='meta'>{{likes}} Likes<span class="meta-comments"> - {{comments.length}} Comments</span></div>
       </footer>
       <div class="reply-box">
-        <input type="text">
+        <textarea></textarea>
         <button>
           <img src="img/appbar.arrow.right.png">
         </button>
+        <div style="clear:both"></div>
       </div>
     </div>
     <div class='comments'>
       <ul>
+      {{#comments}}
+      <li class="comment">
+        <header>
+          <div class="avatar">
+            <img src='{{{user.mugshot_url}}}' />
+          </div>
+          <div class="comment-from-info">
+            <div class="comment-from">{{user.full_name}}</div>
+            <div class="comment-timestamp">{{time}}</div>
+          </div>
+        </header>
+          <div class="comment-body">{{{text.rich}}}</div>
+          <div class="comment-meta">{{attributes.liked_by.count}} likes</div>
+      </li>
+      {{/comments}}
+      {{^comments}}
+      <li class="no-comments">No comments</li>
+      {{/comments}}
       </ul>
     </div>
   </div>

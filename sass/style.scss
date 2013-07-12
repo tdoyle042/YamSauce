@@ -4,7 +4,7 @@
 
 $grid-padding: 40px;
 $group-collapsed-width:400px;
-$group-expanded-width:700px;
+$group-expanded-width:800px;
 $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
 
 @mixin rounded-edges($size) {
@@ -172,6 +172,14 @@ html, body{
       padding: 0;
     }
 
+    .no-comments {
+      font-family: "segoeui";
+      font-size: 1.2em;
+      padding: 30px;
+      color: #999;
+
+    }
+
     .comment {
       border-bottom: 1px solid #dfdfdf;
 
@@ -232,19 +240,21 @@ html, body{
         right: 25px;
       }
 
-      input, button {
-        height: 100px;
+      textarea, button {
+        height: 70px;
         margin: 0;
         padding: 0;
         display: inline-block;
         float: left;
       }
 
-      input {
+      textarea {
         font-family: "segoeuil";
         width: 80%;
         background: white;
         border: 1px solid #dfdfdf;
+        resize: none;
+        overflow: scroll;
       }
       button {
         font-family: "segoeui";
@@ -341,7 +351,8 @@ html, body{
   }
 
   .message-body {
-    padding-right: 40px;
+    overflow: scroll;
+    height: 320px;
   }
 }
 
@@ -350,6 +361,7 @@ html, body{
   margin: 0;
   padding: 0;
   z-index: 1000 !important;
+  height:590px;
 }
 
 

@@ -6,14 +6,19 @@ var ThreadView = Backbone.View.extend({
 		this.template = $("#thread-template");
 	},
 	render : function(elem) {
+		console.log("JAD",this.thread);
+
 		var threadStarter = this.thread.threadStarter;
 		this.data = {
-			avatar : threadStarter.user.mugshot_url,
-			from : threadStarter.user.full_name,
-			to : "Bob",
-			"time-stamp" : threadStarter.timestamp,
-			content : threadStarter.text.plain,
+			avatar: threadStarter.user.mugshot_url
+			, from: threadStarter.user.full_name
+			, to: "Bob"
+			, "time-stamp": threadStarter.timestamp
+			, content: threadStarter.text.rich
+			, comments: this.thread.replies.models
+			, likes: threadStarter.likes
 		};
+		
 		var el = Mustache.render(this.template.html(),this.data);
 		elem.append(el);
 
@@ -65,7 +70,6 @@ var ThreadView = Backbone.View.extend({
 		  var current_height = $(this).parent().height();
 
 		  var that = $(this).parent();
-		  that.height(Math.max(current_height, 550));
 		  that.find(".meta-comments").hide();
 
 		  that
