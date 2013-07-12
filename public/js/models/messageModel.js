@@ -5,5 +5,6 @@ var MessageModel = Backbone.Model.extend({
 		this.text = msgData.body;
 		this.timestamp = msgData.created_at;
 		this.inReplyTo = msgData.thread_id;
+    this.user = SauceUtil.globalUsers.get(msgData.sender_id);
 	}
 });
