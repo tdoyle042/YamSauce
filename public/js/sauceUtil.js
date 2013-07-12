@@ -1,6 +1,7 @@
 var SauceUtil = {
-  init: function (currentUser) {
+  init: function (currentUser, globalUsers) {
     this.currentUser = currentUser;
+    this.globalUsers = globalUsers;
   }
   , getCurrentUser: function (cb) {
     cb(this.currentUser);
@@ -78,5 +79,14 @@ var SauceUtil = {
         }
       }
     });
+  }
+  , extractGlobalUsers: function (references) {
+    var self = this;
+    _.chain(references)
+      .filter(function (ref) { return ref.type === 'user'; })
+      .each(function (userData) {
+        var user = new UserModel(userData);
+        self.globalUsers.add(user);
+      });
   }
 }
