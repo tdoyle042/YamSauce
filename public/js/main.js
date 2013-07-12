@@ -25,7 +25,6 @@ var SauceApp = function (currentUser) {
         if (thread) {
           var message = new MessageModel(msg.id, msg.body, msg.sender_id, msg.created_at, msg.thread_id);
           thread.replies.add(message);
-          console.log(thread);
         }
       }
     });
