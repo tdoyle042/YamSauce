@@ -350,7 +350,10 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
 }
 
 .group-threads {
-  display: none;  
+  display: none;
+  width:100%;
+  padding-top:20px;
+  text-align: center; 
 }
 
 /*
