@@ -371,6 +371,7 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
   width:$group-collapsed-width;
   margin:10px auto;
   transition: width 0.1s $group-expansion-function;
+  text-align: center;
 }
 
 .group-header {
@@ -404,6 +405,14 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
 .group-threads {
   display: none;
   padding-top:20px;
+}
+
+.group-markasread {
+  display:none;
+  width:40px;
+  height:40px;
+  padding-bottom:10px;
+  float:right;
   text-align: center; 
   margin-right: -40px;
 }
