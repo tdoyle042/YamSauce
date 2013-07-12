@@ -211,10 +211,9 @@ html, body{
   Group View
 */
 
+
 .group-view {
-  width:400px;
   margin:10px auto;
-  transition: width 0.1s ease-out;
 }
 
 .group-header {
@@ -236,14 +235,12 @@ html, body{
    float:right;
 }
 
-.expanded-group {
-  width:650px;
-  transition: width 0.1s cubic-bezier(.10, .10, 0, 1);
-}
+
 
 /*
   Animations
 */
+
 
 
 /*

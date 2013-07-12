@@ -19,6 +19,7 @@ var GroupView = Backbone.View.extend({
 		$(".content").append(this.el);
 	},
 	toggleGroupState : function() {
+
 		if(!this.expanded)
 			this.$el.addClass("expanded-group");
 		else
