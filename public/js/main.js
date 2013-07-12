@@ -4,14 +4,18 @@ var SauceApp = function (currentUser) {
 
   var inboxThreads = new ThreadCollection();
   SauceUtil.getInboxMessages(function (data) {
+
     var messages = data.messages;
 
     _.each(messages, function (msg) {
       if (msg.id === msg.thread_id) {
+        // console.log(msg);
         // Message is the threadstarter
         var threadStarter = new MessageModel(msg.id, msg.body, msg.sender_id, msg.created_at, null);
         var replies = new MessageCollection();
         var thread = new ThreadModel(msg.thread_id, threadStarter, replies);
+        // console.log(thread);
+
         inboxThreads.add(thread);
       }
     });
@@ -30,7 +34,19 @@ var SauceApp = function (currentUser) {
         }
       }
     });
+
+    $("#loading-message").hide();
+    //Testing Creating Thread Views and Such
+    var testGroup = new GroupModel({
+        id : 0,
+        name : "Inbox Messages",
+        threads : inboxThreads
+    });
+    var testGroupView = new GroupView({group: testGroup});
+    testGroupView.render();
   });
+
+  
 
   // SauceUtil.getCurrentUser(log);
   // SauceUtil.getTopGroups(log);
