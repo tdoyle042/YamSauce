@@ -88,6 +88,17 @@ var SauceUtil = {
       }
     });
   }
+  , addCommentsToThreads: function (threaded_extended, threadColl) {
+    _.each(threaded_extended, function (comments, threadId) {
+      _.each(comments, function (msgData) {
+        var thread = threadColl.get(threadId);
+        if (thread) {
+          var message = new MessageModel(msgData);
+          thread.replies.add(message);
+        }
+      });
+    });
+  }
   , extractGlobalUsers: function (references) {
     var self = this;
     _.chain(references)
