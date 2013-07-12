@@ -41,26 +41,14 @@
 <div class="container">
   <div class="pure-g">
 
-    <!-- Jumpbar -->
-    <div class="pure-u-1-8 jumpbar">
-      <ul>
-        <li class="active">Inbox</li>
-        <li>Core Services</li>
-        <li>Clieñts Team</li>
-        <li>Rails Team</li>
-        <li>Off Topic but Rad</li>
-      </ul>
-    </div>
-    
     <!-- Main content -->
-    <div class="content-wrapper pure-u-3-4">
+    <div class="content-wrapper pure-u-1">
       <div class="content">
 
 
       </div>
     </div>
-    <!-- Offset -->
-    <div class="pure-u-1-8"></div>
+
   </div>
 
 </div>
@@ -120,11 +108,15 @@
         {{content}} 
       </div>
       <footer>
-        <div class='meta'>{{likes}} Likes - 5 Comments</div>
+        <div class='meta'>{{likes}} Likes - {{comments.length}} Comments</div>
       </footer>
     </div>
-    <div class='comments pure-u-1-2'>
-
+    <div class='comments'>
+      <ul>
+        {{#comments}}
+        <li class="comment">{{from}}: {{content}}</li>
+        {{/comments}}
+      </ul>
     </div>
   </div>
   {{/messages}}
