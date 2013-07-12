@@ -9,17 +9,15 @@ var ThreadView = Backbone.View.extend({
 
 		var threadStarter = this.thread.threadStarter;
 		this.data = {
-			avatar : threadStarter.user.mugshot_url,
-			from : threadStarter.user.full_name,
-			to : "Bob",
-			"time-stamp" : threadStarter.timestamp,
-			content : threadStarter.text.rich,
-			comments : this.thread.replies.models,
-			likes: threadStarter.likes
+			avatar: threadStarter.user.mugshot_url
+			, from: threadStarter.user.full_name
+			, to: "Bob"
+			, "time-stamp": threadStarter.timestamp
+			, content: threadStarter.text.rich
+			, comments: this.thread.replies.models
+			, likes: threadStarter.likes
 		};
-		console.log("SALEM")
-		console.log(this.thread.replies)
-
+		
 		var el = Mustache.render(this.template.html(),this.data);
 		elem.append(el);
 
