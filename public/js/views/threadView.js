@@ -15,7 +15,7 @@ var ThreadView = Backbone.View.extend({
 			"time-stamp" : threadStarter.timestamp,
 			content : threadStarter.text.rich,
 			comments : this.thread.replies.models,
-			likes: this.thread.threadStarter.attributes.liked_by.count
+			likes: threadStarter.likes
 		};
 		console.log("SALEM")
 		console.log(this.thread.replies)
