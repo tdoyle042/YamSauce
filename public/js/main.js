@@ -43,7 +43,7 @@ var SauceApp = function (currentUser) {
         SauceUtil.addMessagesToThreads(messages, groupThreads);
 
         var threaded_extended = msgData.threaded_extended;
-        SauceUtil.addCommentsToThreads(threaded_extended, inboxThreads);
+        SauceUtil.addCommentsToThreads(threaded_extended, groupThreads);
 
         // Create the group model and add it to topGroups collection
         var group = new GroupModel({
