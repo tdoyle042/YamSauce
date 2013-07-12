@@ -9,17 +9,11 @@ $(document).ready(function() {
   //
 
   // Templates and Context (Change here when not testing)
-  var message_template = $("#message-template").html();
-  var message_context = test_messages
+  // var message_template = $("#message-template").html();
+  // var message_context = test_messages
 
   // MESSAGES
-  $(".content").html(Mustache.render(message_template, message_context));
-
-
-  var testGroupView = new GroupView();
-  var testGroupView2 = new GroupView();
-  testGroupView.render();
-  testGroupView2.render();
+  // $(".content").html(Mustache.render(message_template, message_context));
 
 
   //

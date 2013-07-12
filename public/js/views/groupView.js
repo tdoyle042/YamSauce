@@ -6,24 +6,37 @@ var GroupView = Backbone.View.extend({
 	events : {
 		"click .group-header" : "toggleGroupState" 
 	},
-	initialize : function() {
-		// this.group = group;
+	initialize : function(params) {
 		this.template = $("#group-template").html();
+		this.group = params.group
 		this.data = {
-			"group-name" : "Rainbows and Sunshine",
+			"group-name" : this.group.name,
 			"group-unread-count" : 15
 		};
 	},
 	render : function() {
 		this.$el.html(Mustache.render(this.template,this.data));
 		$(".content").append(this.el);
+
+		// console.log(this.group.threads);
+		// console.log(this.group.threads.models);
+		_.map(this.group.threads.models,function(thread){
+			
+		});
 	},
 	toggleGroupState : function() {
-		if(!this.expanded)
+
+		if(!this.expanded) {
 			this.$el.addClass("expanded-group");
-		else
+			this.expandGroup();
+		}
+		else {
 			this.$el.removeClass("expanded-group");
+		}
 
 		this.expanded = !this.expanded;
+	},
+	expandGroup : function() {
+
 	}
 });

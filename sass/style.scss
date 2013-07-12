@@ -279,10 +279,15 @@ html, body{
 /*
   Group View
 */
+
+$group-collapsed-width:400px;
+$group-expanded-width:700px;
+$group-expansion-function : cubic-bezier(.10, .10, 0, 1);
+
 .group-view {
-  width:400px;
+  width:$group-collapsed-width;
   margin:10px auto;
-  animation:grow;
+  transition: width 0.1s $group-expansion-function;
 }
 
 .group-header {
@@ -292,6 +297,7 @@ html, body{
   padding:10px 15px;
   border-radius:3px;
   text-align: left;
+  transition: padding 0.1s $group-expansion-function;
 }
 
 .group-name {
@@ -305,16 +311,17 @@ html, body{
 }
 
 .expanded-group {
-  width: 650px;
+  width:$group-expanded-width;
+  .group-header {
+    padding:15px 20px;
+  }
+  transition: width 0.1s $group-expansion-function;
 }
 
 /*
   Animations
 */
 
-@keyframes grow {
-  
-}
 
 /*
  * TESTING SHIT
