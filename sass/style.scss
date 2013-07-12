@@ -401,8 +401,9 @@ $group-expansion-function : cubic-bezier(.10, .10, 0, 1);
 }
 
 .group-threads {
-  display: none;  
-  position: relative;
+  display: none;
+  padding-top:20px;
+  text-align: center; 
 }
 
 /*
