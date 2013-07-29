@@ -2,3 +2,5 @@
 public/css/style.css
 .DS_Store
 
+# Ignore real env file
+/.env
