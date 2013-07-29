@@ -1,1 +1,1 @@
-web: bundle exec ruby app.rb -p $PORT
+web: compass compile; bundle exec ruby app.rb -p $PORT
