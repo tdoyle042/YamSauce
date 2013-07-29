@@ -1,6 +1,8 @@
 # YamSauce
 
-It's yummy!
+For part of the sacred tradition that is Yammer Hack Day, we ([@schallert](http://github.com/schallert), [@tdoyle042](http://github.com/tdoyle042), [@bichiliad](http://github.com/bichiliad)), put our Red Bull-fueled intern minds together to create YamSauce, a new way for consuming Yammer feeds. Our main focus in creating YamSauce was thinking of clean and user-friendly ways to consume Yammer feeds and reach the ever-desired "Inbox 0". We also threw some JavaScript and CSS chops in to top it off.
+
+Oh, and our app won one of 5 awards given out of over 60 submitted hacks.
 
 ## How to run the app
 If you want to just play around without provisioning your own app, just go to [https://yamsauce.herokuapp.com](https://yamsauce.herokuapp.com)
