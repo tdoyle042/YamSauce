@@ -3,9 +3,9 @@
 It's yummy!
 
 ## How to run the app
-    gem install bundler
+    gem install bundler # if you don't have bundler
     bundle install
-    ruby app.rb
+    bundle exec foreman start
 
 ## Dealing with assets
 Make sure you've run `bundle install` before doing anything
