@@ -16,5 +16,5 @@ configure :production do
 end
 
 get '/' do
-  File.read(File.join('public', 'home.html'))
+  erb File.read(File.join('public', 'home.html.erb'))
 end
